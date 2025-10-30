@@ -7,6 +7,7 @@
 - 所有样式必须优先使用 Tailwind CSS 工具类
 - 避免编写自定义 CSS，除非 Tailwind 无法满足需求
 - 使用 Tailwind 的设计系统保持一致性
+- Tailwind 必须使用 v4 的语法和框架
 
 ### 类名组织
 

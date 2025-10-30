@@ -1,0 +1,299 @@
+/* 主样式文件 - Tailwind CSS V4 */
+
+/* 导入字体 */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@import "tailwindcss";
+
+/* Tailwind CSS V4 主题配置 */
+@theme {
+    /* 游戏风格主色调 */
+    --color-primary-50: #eff6ff;
+    --color-primary-100: #dbeafe;
+    --color-primary-200: #bfdbfe;
+    --color-primary-300: #93c5fd;
+    --color-primary-400: #60a5fa;
+    --color-primary-500: #3b82f6;
+    --color-primary-600: #2563eb;
+    --color-primary-700: #1d4ed8;
+    --color-primary-800: #1e40af;
+    --color-primary-900: #1e3a8a;
+
+    /* 能量绿色 */
+    --color-accent-50: #ecfdf5;
+    --color-accent-100: #d1fae5;
+    --color-accent-200: #a7f3d0;
+    --color-accent-300: #6ee7b7;
+    --color-accent-400: #34d399;
+    --color-accent-500: #10b981;
+    --color-accent-600: #059669;
+    --color-accent-700: #047857;
+    --color-accent-800: #065f46;
+    --color-accent-900: #064e3b;
+
+    /* 警告橙色 */
+    --color-warning-50: #fffbeb;
+    --color-warning-100: #fef3c7;
+    --color-warning-200: #fde68a;
+    --color-warning-300: #fcd34d;
+    --color-warning-400: #fbbf24;
+    --color-warning-500: #f59e0b;
+    --color-warning-600: #d97706;
+    --color-warning-700: #b45309;
+    --color-warning-800: #92400e;
+    --color-warning-900: #78350f;
+
+    /* 背景色 */
+    --color-bg-primary: #0f172a;
+    --color-bg-secondary: #1e293b;
+    --color-bg-tertiary: #334155;
+
+    /* 文字色 */
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #64748b;
+
+    /* 字体 */
+    --font-display: "Orbitron", "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-code: "JetBrains Mono", "Fira Code", monospace;
+
+    /* 动画 */
+    --animate-float: float 6s ease-in-out infinite;
+    --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-bounce-slow: bounce 3s infinite;
+}
+
+/* 基础样式重置 */
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--font-body);
+        color: var(--color-text-primary);
+        background-color: var(--color-bg-primary);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+
+    /* 自定义滚动条 */
+    ::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: var(--color-bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary-600);
+        border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--color-primary-500);
+    }
+}
+
+/* 组件样式 */
+@layer components {
+    /* 游戏风格按钮 */
+    .btn-game {
+        padding: 0.75rem 1.5rem;
+        color: white;
+        font-family: var(--font-display);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border: 2px solid var(--color-primary-400);
+        border-radius: 0.5rem;
+        background: linear-gradient(
+            to right,
+            var(--color-primary-600),
+            var(--color-primary-500)
+        );
+        box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.25);
+        transition: all 0.3s ease-out;
+        cursor: pointer;
+    }
+
+    .btn-game:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.4);
+        border-color: var(--color-primary-300);
+    }
+
+    .btn-game:active {
+        transform: scale(0.95);
+    }
+
+    /* 卡片样式 */
+    .card-game {
+        background-color: rgba(30, 41, 59, 0.8);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 0.75rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .card-game:hover {
+        border-color: rgba(59, 130, 246, 0.4);
+        box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1);
+    }
+
+    /* 标题样式 */
+    .title-game {
+        font-family: var(--font-display);
+        font-weight: 700;
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(
+            to right,
+            var(--color-primary-400),
+            var(--color-accent-400)
+        );
+    }
+
+    /* 技能标签 */
+    .skill-tag {
+        padding: 0.25rem 0.75rem;
+        background-color: rgba(59, 130, 246, 0.2);
+        color: var(--color-primary-300);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    .skill-tag:hover {
+        background-color: rgba(59, 130, 246, 0.3);
+        border-color: rgba(96, 165, 250, 0.5);
+    }
+
+    /* 加载动画 */
+    .loading-spinner {
+        animation: spin 1s linear infinite;
+        border-radius: 9999px;
+        border: 4px solid var(--color-primary-200);
+        border-top-color: var(--color-primary-600);
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+}
+
+/* 工具样式 */
+@layer utilities {
+    /* 文本渐变 */
+    .text-gradient {
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(to right, var(--tw-gradient-stops));
+    }
+
+    .text-gradient-primary {
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(
+            to right,
+            var(--color-primary-400),
+            var(--color-primary-600)
+        );
+    }
+
+    .text-gradient-accent {
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(
+            to right,
+            var(--color-accent-400),
+            var(--color-accent-600)
+        );
+    }
+
+    /* 玻璃态效果 */
+    .glass {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .glass-dark {
+        background-color: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* 发光效果 */
+    .glow {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25);
+    }
+
+    .glow-primary {
+        box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.25);
+    }
+
+    .glow-accent {
+        box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.25);
+    }
+
+    /* 动画禁用 */
+    .reduce-motion {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* 响应式断点调整 */
+@media (max-width: 768px) {
+    .btn-game {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .card-game {
+        border-radius: 0.5rem;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .btn-game {
+        border-width: 4px;
+    }
+
+    .card-game {
+        border-width: 2px;
+    }
+}
+
+/* 减少动画模式支持 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

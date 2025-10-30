@@ -1,6 +1,6 @@
 # 交互式游戏风格简历网站实施计划
 
-- [ ] 1. 项目基础设置和依赖安装
+- [x] 1. 项目基础设置和依赖安装
 
   - 安装核心依赖包：Matter.js、GSAP、Lottie、Tailwind CSS
   - 配置 TypeScript 类型定义和路径别名
