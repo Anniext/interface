@@ -206,14 +206,22 @@ const particleStats = ref({
 
 // Canvas 就绪回调
 const onCanvasReady = (_ctx: CanvasRenderingContext2D) => {
-    initParticleSystem();
+    console.log("Canvas 就绪，开始初始化粒子系统");
+    try {
+        initParticleSystem();
+        console.log("粒子系统初始化完成");
+    } catch (error) {
+        console.error("粒子系统初始化失败:", error);
+    }
 };
 
 // 初始化粒子系统
 const initParticleSystem = () => {
+    console.log("创建粒子系统...");
+
     particleSystem = new ParticleSystem({
-        maxParticles: 1000,
-        emissionRate: emissionRate.value,
+        maxParticles: 500, // 减少最大粒子数
+        emissionRate: 20, // 减少发射速率
         lifeRange: [2, 5],
         sizeRange: [3, 8],
         velocityRange: {
@@ -229,23 +237,30 @@ const initParticleSystem = () => {
             "#ff9ff3",
         ],
         gravity: { x: 0, y: gravityStrength.value },
-        enableCollision: enableCollision.value,
+        enableCollision: false, // 先禁用碰撞检测
     });
 
+    console.log("设置粒子系统边界...");
     particleSystem.setBounds(canvasConfig.width!, canvasConfig.height!);
 
     // 添加主发射器
+    console.log("添加主发射器...");
     mainEmitterIndex = particleSystem.getEmitters().length;
     particleSystem.addEmitter({
         position: { x: canvasConfig.width! / 2, y: canvasConfig.height! / 2 },
         size: { width: 50, height: 50 },
-        rate: emissionRate.value,
+        rate: 20, // 减少发射速率
         active: isActive.value,
         angleRange: [0, Math.PI * 2],
         speedRange: [50, 150],
         particleTypes: getParticleTypes(),
         colors: ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#feca57"],
     });
+
+    console.log(
+        "粒子系统初始化完成，发射器数量:",
+        particleSystem.getEmitters().length,
+    );
 };
 
 // 获取粒子类型数组
@@ -297,19 +312,29 @@ const onCanvasEvent = (event: ICanvasEvent) => {
 
 // 渲染帧回调
 const onRenderFrame = (_deltaTime: number) => {
-    if (!particleSystem) return;
+    try {
+        if (!particleSystem) {
+            console.warn("粒子系统未初始化");
+            return;
+        }
 
-    const ctx = canvasEngineRef.value?.getContext();
-    if (!ctx) return;
+        const ctx = canvasEngineRef.value?.getContext();
+        if (!ctx) {
+            console.warn("Canvas 上下文未找到");
+            return;
+        }
 
-    // 更新粒子系统
-    particleSystem.update(_deltaTime);
+        // 更新粒子系统
+        particleSystem.update(_deltaTime);
 
-    // 渲染粒子系统
-    particleSystem.render(ctx);
+        // 渲染粒子系统
+        particleSystem.render(ctx);
 
-    // 更新统计信息
-    particleStats.value = particleSystem.getStats();
+        // 更新统计信息
+        particleStats.value = particleSystem.getStats();
+    } catch (error) {
+        console.error("渲染帧错误:", error);
+    }
 };
 
 // 控制方法

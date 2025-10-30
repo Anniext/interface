@@ -47,6 +47,18 @@ onMounted(() => {
                         active-class="bg-primary-500/30 text-primary-300">
                         图形测试
                     </router-link>
+                    <router-link
+                        to="/particle-debug"
+                        class="nav-link px-3 py-2 rounded hover:bg-primary-500/20 transition-colors"
+                        active-class="bg-primary-500/30 text-primary-300">
+                        调试
+                    </router-link>
+                    <router-link
+                        to="/simple-particle"
+                        class="nav-link px-3 py-2 rounded hover:bg-primary-500/20 transition-colors"
+                        active-class="bg-primary-500/30 text-primary-300">
+                        简单粒子
+                    </router-link>
                 </div>
             </div>
         </nav>

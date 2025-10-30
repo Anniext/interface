@@ -6,7 +6,14 @@
 import type { IParticleSystemConfig, IPoint, ISize } from "@/types";
 import { ParticleType } from "@/types";
 import { Particle } from "./Particle";
-import { random, randomInt } from "./index";
+// 内联工具函数以避免循环导入
+const random = (min: number, max: number): number => {
+    return Math.random() * (max - min) + min;
+};
+
+const randomInt = (min: number, max: number): number => {
+    return Math.floor(random(min, max + 1));
+};
 
 export interface IEmitter {
     /** 发射器位置 */

@@ -35,6 +35,22 @@ const routes: RouteRecordRaw[] = [
             title: "几何图形测试",
         },
     },
+    {
+        path: "/particle-debug",
+        name: "ParticleDebug",
+        component: () => import("@/views/ParticleDebug.vue"),
+        meta: {
+            title: "粒子系统调试",
+        },
+    },
+    {
+        path: "/simple-particle",
+        name: "SimpleParticle",
+        component: () => import("@/views/SimpleParticleTest.vue"),
+        meta: {
+            title: "简单粒子测试",
+        },
+    },
 ];
 
 // 创建路由实例
