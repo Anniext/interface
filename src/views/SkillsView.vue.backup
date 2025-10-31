@@ -1,6 +1,6 @@
 <template>
     <div
-        class="skills-page min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+        class="skills-page min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
         <!-- 背景粒子效果 -->
         <div class="absolute inset-0 pointer-events-none">
             <canvas
@@ -13,7 +13,7 @@
             <div ref="titleRef" class="text-center mb-16">
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
                     <span
-                        class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        class="bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                         技能展示
                     </span>
                 </h1>
@@ -29,7 +29,7 @@
                     <h2
                         class="text-2xl font-bold text-white mb-8 text-center flex items-center justify-center">
                         <div
-                            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-3 flex items-center justify-center">
+                            class="w-8 h-8 bg-linear-to-r from-blue-500 to-purple-500 rounded-full mr-3 flex items-center justify-center">
                             <svg
                                 class="w-4 h-4 text-white"
                                 fill="currentColor"
@@ -77,13 +77,13 @@
             </div>
 
             <!-- 技术栈标签云物理交互区域 -->
-            <div ref="tagCloudSectionRef" class="mb-16">
+            <div ref="tagCloudSectionRef" class="mb-16 relative z-10">
                 <div
-                    class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+                    class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 relative">
                     <h2
                         class="text-2xl font-bold text-white mb-8 text-center flex items-center justify-center">
                         <div
-                            class="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mr-3 flex items-center justify-center">
+                            class="w-8 h-8 bg-linear-to-r from-green-500 to-blue-500 rounded-full mr-3 flex items-center justify-center">
                             <svg
                                 class="w-4 h-4 text-white"
                                 fill="currentColor"
@@ -98,8 +98,30 @@
                             class="ml-4 px-3 py-1 bg-purple-600 hover:bg-purple-700 rounded text-sm transition-colors">
                             重置
                         </button>
+                        <button
+                            @click="testSkillsData"
+                            class="ml-2 px-3 py-1 bg-green-600 hover:bg-green-700 rounded text-sm transition-colors">
+                            测试数据
+                        </button>
                     </h2>
-                    <div class="relative">
+                    <!-- 临时调试信息 -->
+                    <div
+                        class="mb-4 p-3 bg-black/60 rounded text-white text-sm">
+                        <div>
+                            skillsData 状态:
+                            {{ skillsData ? "已加载" : "未加载" }}
+                        </div>
+                        <div>topSkills 数量: {{ topSkills.length }}</div>
+                        <div v-if="topSkills.length > 0">
+                            技能列表:
+                            {{ topSkills.map((s) => s.name).join(", ") }}
+                        </div>
+                        <div v-else class="text-yellow-300">
+                            ⚠️ 没有找到等级 >= 7 的技能
+                        </div>
+                    </div>
+
+                    <div class="relative z-10" style="min-height: 400px">
                         <SkillDropEffect
                             ref="skillDropRef"
                             :skills="topSkills"
@@ -109,26 +131,6 @@
                             :auto-start="false"
                             @skill-clicked="handleSkillClick"
                             @drop-complete="handleDropComplete" />
-
-                        <!-- 调试信息 -->
-                        <div
-                            class="mt-4 p-4 bg-black/50 text-white text-sm rounded">
-                            <p>topSkills 长度: {{ topSkills.length }}</p>
-                            <p>
-                                skillsData 状态:
-                                {{ skillsData ? "已加载" : "未加载" }}
-                            </p>
-                            <div v-if="topSkills.length > 0" class="mt-2">
-                                <p>技能列表:</p>
-                                <ul class="list-disc list-inside">
-                                    <li
-                                        v-for="skill in topSkills.slice(0, 5)"
-                                        :key="skill.id">
-                                        {{ skill.name }} ({{ skill.level }})
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -140,7 +142,7 @@
                     <h2
                         class="text-2xl font-bold text-white mb-8 text-center flex items-center justify-center">
                         <div
-                            class="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 flex items-center justify-center">
+                            class="w-8 h-8 bg-linear-to-r from-orange-500 to-red-500 rounded-full mr-3 flex items-center justify-center">
                             <svg
                                 class="w-4 h-4 text-white"
                                 fill="currentColor"
@@ -265,7 +267,7 @@
             <div class="text-center">
                 <router-link
                     to="/"
-                    class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                    class="inline-flex items-center px-6 py-3 bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
                     <svg
                         class="w-5 h-5 mr-2"
                         fill="none"
@@ -331,7 +333,7 @@ const programmingLanguages = computed(() => {
 
 const topSkills = computed(() => {
     if (!skillsData.value) {
-        console.log("SkillsView: 技能数据未加载");
+        console.log("技能数据未加载，返回空数组");
         return [];
     }
 
@@ -339,10 +341,10 @@ const topSkills = computed(() => {
         const allSkills = skillsData.value.skillCategories.flatMap(
             (cat) => cat.skills,
         );
-        console.log("SkillsView: 所有技能数量:", allSkills.length);
+        console.log("所有技能数量:", allSkills.length);
 
         const filteredSkills = allSkills.filter((skill) => skill.level >= 7);
-        console.log("SkillsView: 等级>=7的技能数量:", filteredSkills.length);
+        console.log("等级>=7的技能数量:", filteredSkills.length);
 
         const topSkillsResult = filteredSkills.slice(0, 12).map((skill) => ({
             id: skill.id,
@@ -352,10 +354,10 @@ const topSkills = computed(() => {
             icon: skill.icon,
         }));
 
-        console.log("SkillsView: 最终的 topSkills:", topSkillsResult);
+        console.log("最终的 topSkills:", topSkillsResult);
         return topSkillsResult;
     } catch (error) {
-        console.error("SkillsView: 计算 topSkills 时出错:", error);
+        console.error("计算 topSkills 时出错:", error);
         return [];
     }
 });
@@ -707,6 +709,26 @@ const resetTagCloud = () => {
 };
 
 /**
+ * 测试技能数据
+ */
+const testSkillsData = async () => {
+    console.log("=== 测试技能数据 ===");
+    console.log("skillsData.value:", skillsData.value);
+    console.log("topSkills.value:", topSkills.value);
+    console.log("skillDropRef.value:", skillDropRef.value);
+
+    if (!skillsData.value) {
+        console.log("重新加载技能数据...");
+        await loadSkillsData();
+    }
+
+    if (skillDropRef.value) {
+        console.log("刷新组件数据...");
+        skillDropRef.value.refreshSkills();
+    }
+};
+
+/**
  * 初始化滚动动画
  */
 const initScrollAnimations = () => {
@@ -740,8 +762,17 @@ const initScrollAnimations = () => {
         trigger: tagCloudSectionRef.value!,
         start: "top 70%",
         onEnter: () => {
+            console.log("标签云区域进入视口，准备启动掉落效果");
             setTimeout(() => {
-                skillDropRef.value?.startDropEffect();
+                console.log("开始执行掉落效果，topSkills:", topSkills.value);
+                if (skillDropRef.value && topSkills.value.length > 0) {
+                    skillDropRef.value.startDropEffect();
+                } else {
+                    console.warn("无法启动掉落效果：", {
+                        hasRef: !!skillDropRef.value,
+                        skillsCount: topSkills.value.length,
+                    });
+                }
             }, 500);
         },
     });
@@ -774,17 +805,22 @@ const initScrollAnimations = () => {
  */
 const loadSkillsData = async () => {
     try {
-        console.log("SkillsView: 开始加载技能数据...");
         const data = await getSkillsData();
         skillsData.value = data;
-        console.log("SkillsView: 技能数据加载完成:", data);
-        console.log("SkillsView: skillsData.value 已更新:", skillsData.value);
+        console.log("技能数据加载完成:", data);
+        console.log("skillsData.value 已更新:", skillsData.value);
 
         // 强制触发计算属性更新
         await nextTick();
-        console.log("SkillsView: topSkills 计算结果:", topSkills.value);
+        console.log("topSkills 计算结果:", topSkills.value);
+
+        // 强制触发组件更新
+        if (skillDropRef.value && topSkills.value.length > 0) {
+            console.log("强制更新 SkillDropEffect 组件");
+            skillDropRef.value.refreshSkills();
+        }
     } catch (error) {
-        console.error("SkillsView: 加载技能数据失败:", error);
+        console.error("加载技能数据失败:", error);
     }
 };
 

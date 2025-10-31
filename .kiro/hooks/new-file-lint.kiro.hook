@@ -1,0 +1,21 @@
+{
+  "enabled": true,
+  "name": "新文件代码检查",
+  "description": "每当创建新文件时自动运行 npm run lint 进行代码检查，如果发现错误则进行修复",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "src/**/*.ts",
+      "src/**/*.vue",
+      "src/**/*.js",
+      "*.ts",
+      "*.js",
+      "*.vue"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "检测到新文件创建，请运行 npm run lint 命令检查代码质量。如果发现任何 lint 错误，请分析错误原因并修复这些问题。确保代码符合项目的代码规范和最佳实践。"
+  }
+}

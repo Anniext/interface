@@ -10,10 +10,37 @@
                 width: `${canvasSize.width}px`,
                 height: `${canvasSize.height}px`,
             }"
-            class="absolute inset-0"></canvas>
+            class="absolute inset-0 z-10"></canvas>
+
+        <!-- 调试信息 -->
+        <div
+            class="absolute top-2 left-2 bg-black/80 text-white p-2 rounded text-xs z-50">
+            <div>Props技能数量: {{ props.skills?.length || 0 }}</div>
+            <div>位置状态数量: {{ skillsWithPosition.length }}</div>
+            <div>容器尺寸: {{ props.width }}x{{ props.height }}</div>
+            <button
+                @click="forceRefresh"
+                class="mt-1 px-2 py-1 bg-blue-600 rounded text-xs">
+                强制刷新
+            </button>
+        </div>
 
         <!-- 技能标签 HTML 层 -->
-        <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute inset-0 z-20">
+            <!-- 如果没有技能数据，显示提示 -->
+            <div
+                v-if="skillsWithPosition.length === 0"
+                class="absolute inset-0 flex items-center justify-center z-30">
+                <div class="text-white/60 text-center">
+                    <div class="text-lg mb-2">🎯</div>
+                    <div>等待技能数据加载...</div>
+                    <div class="text-sm mt-2">
+                        Props: {{ props.skills?.length || 0 }} 个技能
+                    </div>
+                </div>
+            </div>
+
+            <!-- 技能标签 -->
             <div
                 v-for="skill in skillsWithPosition"
                 :key="skill.id"
@@ -30,13 +57,15 @@
                     boxShadow: skill.isGlowing
                         ? `0 0 20px ${skill.color}80, 0 0 40px ${skill.color}40`
                         : `0 4px 12px ${skill.color}30`,
+                    zIndex: 25,
                 }"
-                class="absolute skill-tag"
+                class="absolute skill-tag cursor-pointer"
                 :class="[
                     'px-3 py-1 rounded-full text-sm font-medium shadow-lg',
                     'border-2 transition-all duration-300',
                     skill.isGlowing ? 'animate-pulse shadow-2xl' : '',
-                ]">
+                ]"
+                @click="emit('skillClicked', skill)">
                 <!-- 技能图标 -->
                 <div class="flex items-center space-x-2">
                     <div
@@ -112,7 +141,7 @@
         </div>
 
         <!-- 粒子效果层 -->
-        <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute inset-0 pointer-events-none z-15">
             <div
                 v-for="particle in particles"
                 :key="particle.id"
@@ -217,15 +246,54 @@ const canvasSize = computed(() => ({
     height: props.height,
 }));
 
-// 技能位置状态
-const skillsWithPosition = ref(
-    props.skills.map((skill) => ({
-        ...skill,
-        position: { x: 100 + Math.random() * 600, y: 50 },
-        isAnimating: false,
-        isGlowing: false,
-    })),
-);
+// 技能位置状态 - 初始化为空数组
+const skillsWithPosition = ref<
+    Array<{
+        id: string;
+        name: string;
+        level: number;
+        color: string;
+        icon?: string;
+        position: { x: number; y: number };
+        isAnimating: boolean;
+        isGlowing: boolean;
+    }>
+>([]);
+
+/**
+ * 计算技能网格位置
+ */
+function calculateSkillPositions(skills: typeof props.skills) {
+    return skills.map((skill, index) => {
+        // 计算网格布局位置
+        const itemsPerRow = Math.floor(props.width / 140); // 每行最多显示的技能数
+        const row = Math.floor(index / itemsPerRow);
+        const col = index % itemsPerRow;
+
+        // 计算居中位置
+        const totalWidth = Math.min(skills.length, itemsPerRow) * 140;
+        const startX = (props.width - totalWidth) / 2 + 70;
+
+        return {
+            ...skill,
+            position: {
+                x: startX + col * 140,
+                y: 60 + row * 50,
+            },
+            isAnimating: false,
+            isGlowing: false,
+        };
+    });
+}
+
+// 初始化技能位置
+if (props.skills && props.skills.length > 0) {
+    skillsWithPosition.value = calculateSkillPositions(props.skills);
+}
+
+// 调试信息
+console.log("SkillDropEffect 接收到的技能数据:", props.skills);
+console.log("技能位置状态:", skillsWithPosition.value);
 
 // 粒子效果
 const particles = ref<
@@ -259,105 +327,88 @@ function initPhysicsSystem() {
  * 开始掉落效果
  */
 function startDropEffect() {
-    if (!animationEffects || isDropping.value) return;
+    if (isDropping.value) return;
 
     isDropping.value = true;
+    console.log("开始技能掉落动画");
 
-    // 配置掉落效果
-    const config: ISkillDropConfig = {
-        skills: props.skills,
-        dropArea: {
-            x: 50,
-            y: 0,
-            width: canvasSize.value.width - 100,
-            height: 100,
+    // 创建主时间轴
+    const masterTimeline = gsap.timeline({
+        onComplete: () => {
+            isDropping.value = false;
+            emit("dropComplete");
+            console.log("技能掉落动画完成");
         },
-        physics: {
-            gravity: gravityStrength.value,
-            bounce: bounceStrength.value,
-            friction: 0.3,
-            mass: 1.0,
-        },
-        animation: {
-            staggerDelay: 200,
-            fallDuration: 2000,
-            bounceCount: 3,
-        },
-    };
+    });
 
-    // 创建掉落效果
-    currentEffectId = animationEffects.createSkillDropEffect(config);
-
-    // 更新技能位置状态
+    // 为每个技能创建掉落动画
     skillsWithPosition.value.forEach((skill, index) => {
         skill.isAnimating = true;
 
-        // 延迟开始动画
-        setTimeout(() => {
-            const startX =
-                config.dropArea.x + Math.random() * config.dropArea.width;
-            const startY = -50 - index * 20;
+        // 计算随机的掉落起始位置
+        const dropStartX = 50 + Math.random() * (canvasSize.value.width - 100);
+        const dropStartY = -100 - Math.random() * 200; // 从更高的位置开始
 
-            // 使用 GSAP 同步 HTML 元素位置
-            gsap.to(skill.position, {
-                x: startX,
-                y: startY,
-                duration: 0.1,
-                ease: "none",
-                onComplete: () => {
-                    // 开始物理掉落
-                    animateSkillFall(skill);
-                },
-            });
-        }, index * config.animation.staggerDelay);
-    });
+        // 计算最终落地位置
+        const finalX = 50 + Math.random() * (canvasSize.value.width - 150);
+        const finalY = canvasSize.value.height - 80 - Math.random() * 150;
 
-    // 设置完成回调
-    setTimeout(
-        () => {
-            isDropping.value = false;
-            emit("dropComplete");
-        },
-        config.animation.fallDuration +
-            props.skills.length * config.animation.staggerDelay,
-    );
-}
+        // 创建单个技能的动画时间轴
+        const skillTimeline = gsap.timeline();
 
-/**
- * 动画技能掉落
- */
-function animateSkillFall(skill: any) {
-    const finalY = canvasSize.value.height - 100 - Math.random() * 200;
-    const finalX = 100 + Math.random() * (canvasSize.value.width - 200);
+        // 第一阶段：移动到掉落起始位置
+        skillTimeline.to(skill.position, {
+            x: dropStartX,
+            y: dropStartY,
+            duration: 0.3,
+            ease: "power2.out",
+        });
 
-    // 掉落动画
-    gsap.to(skill.position, {
-        x: finalX,
-        y: finalY,
-        duration: 1.5,
-        ease: "bounce.out",
-        onUpdate: () => {
-            // 添加旋转效果
-            if (Math.random() < 0.1) {
-                skill.isGlowing = true;
-                setTimeout(() => {
-                    skill.isGlowing = false;
-                }, 200);
-            }
-        },
-        onComplete: () => {
-            skill.isAnimating = false;
-            // 创建着陆粒子效果
-            createLandingParticles(skill.position, skill.color);
-        },
-    });
+        // 第二阶段：自由落体 + 弹跳
+        skillTimeline.to(skill.position, {
+            x: finalX,
+            y: finalY,
+            duration: 1.2 + Math.random() * 0.6, // 随机化下落时间
+            ease: "bounce.out",
+            onUpdate: () => {
+                // 随机发光效果
+                if (Math.random() < 0.05) {
+                    skill.isGlowing = true;
+                    setTimeout(() => {
+                        skill.isGlowing = false;
+                    }, 150);
+                }
+            },
+            onComplete: () => {
+                skill.isAnimating = false;
+                // 创建着陆效果
+                createLandingParticles(skill.position, skill.color);
 
-    // 添加随机的侧向运动
-    gsap.to(skill.position, {
-        x: `+=${(Math.random() - 0.5) * 100}`,
-        duration: 0.8,
-        ease: "power2.out",
-        delay: 0.3,
+                // 添加轻微的震动效果
+                gsap.to(skill.position, {
+                    x: `+=${(Math.random() - 0.5) * 10}`,
+                    y: `+=${(Math.random() - 0.5) * 5}`,
+                    duration: 0.1,
+                    repeat: 3,
+                    yoyo: true,
+                    ease: "power2.out",
+                });
+            },
+        });
+
+        // 第三阶段：添加轻微的侧向漂移
+        skillTimeline.to(
+            skill.position,
+            {
+                x: `+=${(Math.random() - 0.5) * 60}`,
+                duration: 0.8,
+                ease: "power2.out",
+            },
+            "-=0.8",
+        ); // 与下落同时进行
+
+        // 将技能动画添加到主时间轴，带有交错延迟
+        masterTimeline.add(skillTimeline, index * 0.15);
     });
 }
 
@@ -368,27 +419,35 @@ function createLandingParticles(
     position: { x: number; y: number },
     color: string,
 ) {
-    const particleCount = 8;
+    const particleCount = 12; // 增加粒子数量
 
     for (let i = 0; i < particleCount; i++) {
+        const angle = (Math.PI * 2 * i) / particleCount; // 均匀分布角度
+        const velocity = 30 + Math.random() * 40; // 随机速度
+
         const particle = {
             id: `particle-${Date.now()}-${i}`,
-            x: position.x + (Math.random() - 0.5) * 40,
-            y: position.y + (Math.random() - 0.5) * 20,
-            scale: 0.5 + Math.random() * 0.5,
-            opacity: 1,
+            x: position.x + (Math.random() - 0.5) * 20,
+            y: position.y + (Math.random() - 0.5) * 10,
+            scale: 0.8 + Math.random() * 0.4,
+            opacity: 0.9,
             color: color,
         };
 
         particles.value.push(particle);
 
+        // 计算粒子飞散方向
+        const targetX = particle.x + Math.cos(angle) * velocity;
+        const targetY =
+            particle.y + Math.sin(angle) * velocity - Math.random() * 20; // 向上飞散
+
         // 动画粒子
         gsap.to(particle, {
-            x: particle.x + (Math.random() - 0.5) * 60,
-            y: particle.y - Math.random() * 40,
+            x: targetX,
+            y: targetY,
             scale: 0,
             opacity: 0,
-            duration: 0.8,
+            duration: 0.6 + Math.random() * 0.4,
             ease: "power2.out",
             onComplete: () => {
                 // 移除粒子
@@ -409,16 +468,31 @@ function createLandingParticles(
 function resetSkills() {
     if (isDropping.value) return;
 
+    console.log("重置技能位置");
+
     skillsWithPosition.value.forEach((skill, index) => {
         skill.isAnimating = false;
         skill.isGlowing = false;
 
+        // 计算网格布局位置
+        const itemsPerRow = Math.floor(props.width / 140);
+        const row = Math.floor(index / itemsPerRow);
+        const col = index % itemsPerRow;
+
+        // 计算居中位置
+        const totalWidth =
+            Math.min(skillsWithPosition.value.length, itemsPerRow) * 140;
+        const startX = (props.width - totalWidth) / 2 + 70;
+
+        const targetX = startX + col * 140;
+        const targetY = 60 + row * 50;
+
         gsap.to(skill.position, {
-            x: 100 + index * 120,
-            y: 50,
-            duration: 0.5,
+            x: targetX,
+            y: targetY,
+            duration: 0.6,
             ease: "back.out(1.7)",
-            delay: index * 0.1,
+            delay: index * 0.08, // 稍微减少延迟，让重置更快
         });
     });
 
@@ -490,6 +564,31 @@ function addRandomSkill() {
     );
 }
 
+// 监听技能数据变化
+watch(
+    () => props.skills,
+    (newSkills) => {
+        console.log(
+            "SkillDropEffect: 接收到技能数据:",
+            newSkills?.length || 0,
+            "个技能",
+        );
+
+        if (newSkills && newSkills.length > 0) {
+            skillsWithPosition.value = newSkills.map((skill, index) => ({
+                ...skill,
+                position: { x: 100 + index * 120, y: 50 },
+                isAnimating: false,
+                isGlowing: false,
+            }));
+            console.log("SkillDropEffect: 技能位置状态已更新");
+        } else {
+            skillsWithPosition.value = [];
+        }
+    },
+    { immediate: true, deep: true },
+);
+
 // 监听重力变化
 watch(gravityStrength, () => {
     // 重力变化处理（简化版本）
@@ -514,11 +613,45 @@ onBeforeUnmount(() => {
     }
 });
 
+/**
+ * 手动刷新技能数据
+ */
+function refreshSkills() {
+    console.log("手动刷新技能数据");
+    console.log("当前 props.skills:", props.skills);
+    console.log("props.skills 长度:", props.skills?.length || 0);
+
+    if (props.skills && props.skills.length > 0) {
+        skillsWithPosition.value = calculateSkillPositions(props.skills);
+        console.log("刷新后的技能位置状态:", skillsWithPosition.value);
+    } else {
+        console.log("没有技能数据可刷新");
+        skillsWithPosition.value = [];
+    }
+}
+
+/**
+ * 强制刷新（用于调试）
+ */
+function forceRefresh() {
+    console.log("=== 强制刷新 ===");
+    console.log("props.skills:", props.skills);
+    console.log("skillsWithPosition.value:", skillsWithPosition.value);
+
+    // 强制重新计算
+    if (props.skills && props.skills.length > 0) {
+        skillsWithPosition.value = calculateSkillPositions(props.skills);
+        console.log("强制刷新后:", skillsWithPosition.value);
+    }
+}
+
 // 暴露方法
 defineExpose({
     startDropEffect,
     resetSkills,
     addRandomSkill,
+    refreshSkills,
+    forceRefresh,
 });
 </script>
 
@@ -526,28 +659,46 @@ defineExpose({
 .skill-drop-effect {
     user-select: none;
     -webkit-user-select: none;
+    overflow: hidden; /* 防止技能标签超出容器 */
 }
 
 .skill-tag {
     cursor: pointer;
     transform-origin: center;
+    will-change: transform; /* 优化动画性能 */
+    backface-visibility: hidden; /* 防止动画闪烁 */
+    transition: all 0.2s ease-out;
 }
 
 .skill-tag:hover {
-    transform: scale(1.05);
+    transform: scale(1.08) translateZ(0); /* 添加 translateZ 启用硬件加速 */
+    filter: brightness(1.1);
 }
 
-@keyframes pulse {
+.skill-tag:active {
+    transform: scale(0.95) translateZ(0);
+}
+
+/* 发光动画 */
+@keyframes glow-pulse {
     0%,
     100% {
         opacity: 1;
+        filter: brightness(1) drop-shadow(0 0 8px currentColor);
     }
     50% {
-        opacity: 0.7;
+        opacity: 0.8;
+        filter: brightness(1.2) drop-shadow(0 0 16px currentColor);
     }
 }
 
 .animate-pulse {
-    animation: pulse 0.5s ease-in-out infinite;
+    animation: glow-pulse 0.4s ease-in-out infinite;
+}
+
+/* 粒子效果优化 */
+.absolute.w-2.h-2.rounded-full {
+    will-change: transform, opacity;
+    pointer-events: none;
 }
 </style>

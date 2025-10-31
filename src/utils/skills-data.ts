@@ -7,16 +7,17 @@ import type {
 } from "@/types/skills";
 import { SKILL_LEVEL_LABELS } from "@/types/skills";
 
+// 直接导入技能数据
+import skillsDataJson from "@/data/skills.json";
+
 /**
  * 获取技能数据
  * @returns 技能数据
  */
 export async function getSkillsData(): Promise<ISkillsData> {
     try {
-        // 在实际项目中，这里可能从 API 获取数据
-        const response = await fetch("/src/data/skills.json");
-        const data = await response.json();
-        return data as ISkillsData;
+        // 直接返回导入的数据
+        return skillsDataJson as ISkillsData;
     } catch (error) {
         console.error("获取技能数据失败:", error);
         throw new Error("无法加载技能数据");

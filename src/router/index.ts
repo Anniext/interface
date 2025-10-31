@@ -103,6 +103,15 @@ const routes: RouteRecordRaw[] = [
             transition: "geometric",
         },
     },
+    {
+        path: "/skills-test",
+        name: "SkillsTest",
+        component: () => import("@/views/SkillsTestView.vue"),
+        meta: {
+            title: "技能数据测试",
+            transition: "geometric",
+        },
+    },
     // 404 页面
     {
         path: "/:pathMatch(.*)*",
