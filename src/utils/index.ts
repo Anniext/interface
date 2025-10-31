@@ -4,4 +4,5 @@ export * from "./math";
 export * from "./dom";
 export * from "./format";
 export * from "./validation";
-// physics 和 animation 工具函数将在后续任务中实现
+export * from "./animation";
+// physics 工具函数将在后续任务中实现

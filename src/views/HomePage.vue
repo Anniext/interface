@@ -1,17 +1,17 @@
 <template>
     <div
-        class="home-page min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
+        class="home-page min-h-screen bg-linear-to-br from-gray-900 to-black text-white">
         <div class="container mx-auto px-4 py-8">
             <div class="text-center mb-12">
                 <h1
-                    class="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+                    class="text-5xl font-bold mb-4 bg-linear-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
                     交互式游戏风格简历网站
                 </h1>
                 <p class="text-xl text-gray-300 mb-8">
                     基于 Vue 3 + Canvas + Matter.js + GSAP 的现代化简历展示
                 </p>
 
-                <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
                     <router-link
                         to="/canvas-test"
                         class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors font-semibold">
@@ -26,6 +26,34 @@
                         to="/shape-test"
                         class="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg transition-colors font-semibold">
                         几何图形测试
+                    </router-link>
+                </div>
+
+                <!-- 新增动画演示链接 -->
+                <div class="flex flex-wrap justify-center gap-4 mb-6">
+                    <router-link
+                        to="/element-animation-demo"
+                        class="px-8 py-4 bg-linear-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 rounded-lg transition-all font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
+                        🎭 元素动画效果演示
+                    </router-link>
+                    <router-link
+                        to="/skills"
+                        class="px-8 py-4 bg-linear-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 rounded-lg transition-all font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
+                        💼 技能展示页面
+                    </router-link>
+                </div>
+
+                <!-- 高级动画演示链接 -->
+                <div class="flex flex-wrap justify-center gap-4">
+                    <router-link
+                        to="/scroll-trigger-demo"
+                        class="px-6 py-3 bg-linear-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 rounded-lg transition-all font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
+                        📜 ScrollTrigger 滚动动画
+                    </router-link>
+                    <router-link
+                        to="/animation-performance-demo"
+                        class="px-6 py-3 bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 rounded-lg transition-all font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
+                        📊 动画性能监控
                     </router-link>
                 </div>
             </div>

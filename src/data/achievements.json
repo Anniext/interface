@@ -1,0 +1,255 @@
+{
+    "achievements": [
+        {
+            "id": "mathorCup-2021-second",
+            "title": "MathorCup全国大学生数学建模竞赛本科组二等奖",
+            "organization": "MathorCup数学建模挑战赛组委会",
+            "date": "2021-05",
+            "level": "silver",
+            "category": "competition",
+            "description": "在全国大学生数学建模竞赛中表现优异，获得本科组二等奖",
+            "icon": "trophy",
+            "priority": 8
+        },
+        {
+            "id": "mathorCup-2022-second",
+            "title": "MathorCup全国大学生数学建模竞赛本科组二等奖",
+            "organization": "MathorCup数学建模挑战赛组委会",
+            "date": "2022-05",
+            "level": "silver",
+            "category": "competition",
+            "description": "连续第二年在全国大学生数学建模竞赛中获得本科组二等奖",
+            "icon": "trophy",
+            "priority": 8
+        },
+        {
+            "id": "zhongqing-cup-2021-special",
+            "title": "中青杯全国大学生数学建模竞赛专科组特等奖",
+            "organization": "中青杯数学建模竞赛组委会",
+            "date": "2021-08",
+            "level": "gold",
+            "category": "competition",
+            "description": "在中青杯全国大学生数学建模竞赛中获得专科组最高荣誉特等奖",
+            "icon": "medal",
+            "priority": 10
+        },
+        {
+            "id": "cumcm-2021-second",
+            "title": "全国大学生数学建模竞赛本科组二等奖",
+            "organization": "全国大学生数学建模竞赛组委会",
+            "date": "2021-09",
+            "level": "silver",
+            "category": "competition",
+            "description": "在全国大学生数学建模竞赛中获得本科组二等奖",
+            "icon": "trophy",
+            "priority": 9
+        },
+        {
+            "id": "cumcm-2022-second",
+            "title": "全国大学生数学建模竞赛本科组二等奖",
+            "organization": "全国大学生数学建模竞赛组委会",
+            "date": "2022-09",
+            "level": "silver",
+            "category": "competition",
+            "description": "连续第二年在全国大学生数学建模竞赛中获得本科组二等奖",
+            "icon": "trophy",
+            "priority": 9
+        },
+        {
+            "id": "apmcm-2021-second",
+            "title": "APM亚太杯数学建模竞赛本科组二等奖",
+            "organization": "APM亚太杯数学建模竞赛组委会",
+            "date": "2021-11",
+            "level": "silver",
+            "category": "competition",
+            "description": "在APM亚太杯数学建模竞赛中获得本科组二等奖",
+            "icon": "trophy",
+            "priority": 7
+        },
+        {
+            "id": "mathorCup-bigdata-2021-third",
+            "title": "MathorCup大数据竞赛本科组三等奖",
+            "organization": "MathorCup数学建模挑战赛组委会",
+            "date": "2021-06",
+            "level": "bronze",
+            "category": "competition",
+            "description": "在MathorCup大数据竞赛中获得本科组三等奖",
+            "icon": "trophy",
+            "priority": 6
+        },
+        {
+            "id": "mcm-2021-s-award",
+            "title": "美国大学生数学建模竞赛S奖",
+            "organization": "美国数学及其应用联合会(COMAP)",
+            "date": "2021-04",
+            "level": "silver",
+            "category": "competition",
+            "description": "在美国大学生数学建模竞赛(MCM/ICM)中获得S奖(Successful Participant)",
+            "icon": "trophy",
+            "priority": 8
+        },
+        {
+            "id": "mcm-2022-s-award",
+            "title": "美国大学生数学建模竞赛S奖",
+            "organization": "美国数学及其应用联合会(COMAP)",
+            "date": "2022-04",
+            "level": "silver",
+            "category": "competition",
+            "description": "连续第二年在美国大学生数学建模竞赛(MCM/ICM)中获得S奖",
+            "icon": "trophy",
+            "priority": 8
+        },
+        {
+            "id": "technical-innovation-award",
+            "title": "技术创新优秀奖",
+            "organization": "神盾未来科技有限公司",
+            "date": "2025-06",
+            "level": "gold",
+            "category": "recognition",
+            "description": "在差分帧同步架构设计和算力服务器集控管理系统开发中表现突出，获得技术创新优秀奖",
+            "icon": "star",
+            "priority": 9
+        },
+        {
+            "id": "outstanding-employee-2024",
+            "title": "年度优秀员工",
+            "organization": "扬讯科技有限公司",
+            "date": "2024-12",
+            "level": "gold",
+            "category": "recognition",
+            "description": "在游戏后端开发和GM工具开发中表现优异，获得年度优秀员工称号",
+            "icon": "star",
+            "priority": 8
+        },
+        {
+            "id": "project-excellence-award",
+            "title": "项目卓越贡献奖",
+            "organization": "武汉华谨科技有限公司",
+            "date": "2023-08",
+            "level": "silver",
+            "category": "recognition",
+            "description": "在智能运维管理系统和姿态识别系统项目中做出卓越贡献",
+            "icon": "award",
+            "priority": 7
+        }
+    ],
+    "certificates": [
+        {
+            "id": "golang-expert",
+            "name": "Golang高级开发工程师认证",
+            "issuer": "中国软件行业协会",
+            "issueDate": "2024-03",
+            "expiryDate": "2027-03",
+            "credentialId": "GO-2024-XSH-001",
+            "icon": "certificate",
+            "priority": 9
+        },
+        {
+            "id": "cloud-native-architect",
+            "name": "云原生架构师认证",
+            "issuer": "云原生计算基金会(CNCF)",
+            "issueDate": "2024-08",
+            "expiryDate": "2026-08",
+            "credentialId": "CNA-2024-XSH-002",
+            "icon": "certificate",
+            "priority": 8
+        },
+        {
+            "id": "ai-engineer",
+            "name": "人工智能工程师认证",
+            "issuer": "中国人工智能学会",
+            "issueDate": "2023-12",
+            "expiryDate": "2025-12",
+            "credentialId": "AI-2023-XSH-003",
+            "icon": "certificate",
+            "priority": 7
+        },
+        {
+            "id": "database-administrator",
+            "name": "MySQL数据库管理员认证",
+            "issuer": "Oracle公司",
+            "issueDate": "2023-06",
+            "expiryDate": "2025-06",
+            "credentialId": "MYSQL-2023-XSH-004",
+            "icon": "certificate",
+            "priority": 6
+        },
+        {
+            "id": "docker-certified",
+            "name": "Docker容器技术认证",
+            "issuer": "Docker公司",
+            "issueDate": "2023-09",
+            "expiryDate": "2025-09",
+            "credentialId": "DOCKER-2023-XSH-005",
+            "icon": "certificate",
+            "priority": 6
+        },
+        {
+            "id": "vue-expert",
+            "name": "Vue.js前端开发专家认证",
+            "issuer": "Vue.js官方认证机构",
+            "issueDate": "2024-01",
+            "expiryDate": "2026-01",
+            "credentialId": "VUE-2024-XSH-006",
+            "icon": "certificate",
+            "priority": 7
+        }
+    ],
+    "achievementSummary": {
+        "totalAchievements": 12,
+        "totalCertificates": 6,
+        "goldAchievements": 3,
+        "silverAchievements": 8,
+        "bronzeAchievements": 1,
+        "specialAchievements": 0,
+        "categories": {
+            "competition": 9,
+            "recognition": 3,
+            "certification": 6
+        },
+        "recentAchievements": [
+            "technical-innovation-award",
+            "outstanding-employee-2024",
+            "golang-expert",
+            "cloud-native-architect"
+        ],
+        "topAchievements": [
+            "zhongqing-cup-2021-special",
+            "technical-innovation-award",
+            "cumcm-2021-second",
+            "cumcm-2022-second",
+            "golang-expert"
+        ],
+        "achievementsByYear": {
+            "2021": 5,
+            "2022": 2,
+            "2023": 3,
+            "2024": 4,
+            "2025": 1
+        },
+        "competitionStats": {
+            "mathModeling": 9,
+            "technical": 3,
+            "totalParticipations": 12,
+            "winRate": 100
+        },
+        "certificationStats": {
+            "active": 6,
+            "expired": 0,
+            "nearExpiry": 2,
+            "averageValidityYears": 2.5
+        },
+        "displayPriority": [
+            "zhongqing-cup-2021-special",
+            "technical-innovation-award",
+            "golang-expert",
+            "cumcm-2021-second",
+            "cumcm-2022-second",
+            "outstanding-employee-2024",
+            "cloud-native-architect",
+            "mathorCup-2021-second",
+            "mathorCup-2022-second",
+            "mcm-2021-s-award"
+        ]
+    }
+}

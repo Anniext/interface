@@ -1,0 +1,736 @@
+{
+    "workExperience": [
+        {
+            "id": "shendun-future-tech",
+            "company": "神盾未来科技有限公司",
+            "position": "游戏后端开发工程师",
+            "startDate": "2025-03-24",
+            "endDate": null,
+            "duration": "至今",
+            "location": "广州",
+            "employmentType": "全职",
+            "description": "负责游戏后端开发和全栈开发，参与大型游戏项目的架构设计和开发实施。专注于差分帧同步架构、算力服务器集控管理、GM游戏后台系统开发以及游戏引擎插件开发。",
+            "responsibilities": [
+                "游戏服务器架构设计与开发",
+                "微服务系统搭建与维护",
+                "性能优化和系统监控",
+                "团队技术指导和代码审查"
+            ],
+            "achievements": [
+                "成功实现差分帧同步架构，提升游戏同步性能30%以上",
+                "开发算力服务器集控管理系统，管理5万张4090显卡，提升资源利用率40%",
+                "构建完整的GM游戏后台管理系统，支持实时监控和管理",
+                "开发虚幻5和Unity插件，提升开发效率50%以上",
+                "实现大规模分布式系统架构，支持高并发用户访问",
+                "集成多种AI技术，包括LLM模型和ComfyUI生图服务"
+            ],
+            "companyInfo": {
+                "industry": "游戏开发/AI算力",
+                "scale": "中型企业",
+                "businessScope": "游戏开发、AI算力服务、技术解决方案",
+                "workEnvironment": "技术驱动、创新导向、快速迭代"
+            },
+            "technologies": [
+                "Golang",
+                "Python",
+                "C++",
+                "MySQL",
+                "Redis",
+                "RabbitMQ",
+                "Docker",
+                "Kubernetes",
+                "MQTT",
+                "WebSocket",
+                "gRPC",
+                "Elasticsearch",
+                "Prometheus",
+                "Sentry"
+            ],
+            "projects": [
+                {
+                    "id": "sanguo-decisive-battle",
+                    "name": "三国决战天下",
+                    "description": "大型多人在线策略游戏，采用差分帧同步架构",
+                    "role": "核心后端开发工程师",
+                    "duration": "2025-03 至今",
+                    "technologies": [
+                        "KVM",
+                        "MessagePack",
+                        "MySQL",
+                        "RabbitMQ",
+                        "Zap",
+                        "Elasticsearch",
+                        "Prometheus",
+                        "Sentry"
+                    ],
+                    "highlights": [
+                        "使用差分帧同步架构，服务分为网关层、负载均衡器和战斗服节点",
+                        "网关层连接管理器根据节点负载情况分配战斗服节点",
+                        "负载均衡器根据当前战斗服情况进行横向扩展",
+                        "节点战斗服分为帧同步引擎、游戏逻辑引擎、反作弊系统和监测系统",
+                        "帧同步引擎根据帧状态进行状态存储，接受输入缓冲",
+                        "载入反作弊器验证输入状态，根据网络情况动态控制帧率",
+                        "动态帧率系统控制帧率管理器降低发送帧数据间隔和进行差值处理"
+                    ],
+                    "architecture": "微服务架构：网关层 + 负载均衡器 + 战斗服节点",
+                    "impact": "支持大规模并发用户，提供流畅的游戏体验"
+                },
+                {
+                    "id": "computing-server-management",
+                    "name": "算力服务器集控管理",
+                    "description": "大规模GPU集群管理系统，支持AI计算任务调度",
+                    "role": "全栈开发工程师",
+                    "duration": "2025-04 至今",
+                    "technologies": [
+                        "MQTT",
+                        "Gin",
+                        "GORM",
+                        "Ant",
+                        "Redis",
+                        "MySQL",
+                        "WebSocket"
+                    ],
+                    "highlights": [
+                        "采集5万张4090显卡运行状态",
+                        "使用MQTT协议监测GPU显存占用",
+                        "实现性能指标上传",
+                        "对接ComfyUI生图API",
+                        "实现异步发送器，性能监测器上报",
+                        "熔断器控制并发",
+                        "远程管理生图数量和类型",
+                        "对接GM资产管理系统"
+                    ],
+                    "architecture": "分布式监控系统 + 任务调度系统",
+                    "impact": "大幅提升GPU资源利用率和管理效率"
+                },
+                {
+                    "id": "gm-game-backend",
+                    "name": "GM游戏后台全栈开发",
+                    "description": "游戏运营管理后台系统，提供完整的游戏管理功能",
+                    "role": "全栈开发工程师",
+                    "duration": "2025-03 至今",
+                    "technologies": [
+                        "WebSocket",
+                        "Gin",
+                        "Ant",
+                        "Casbin",
+                        "Zap",
+                        "Elasticsearch",
+                        "Prometheus",
+                        "Sentry",
+                        "MySQL",
+                        "Persist",
+                        "MQTT"
+                    ],
+                    "highlights": [
+                        "实现用户管理，菜单管理，接口管理",
+                        "操作日志，字典管理，角色管理，资产管理",
+                        "资产监控，任务监控，版本管理，版本更新",
+                        "GM指令管理，活动控制",
+                        "ES、Prometheus、Sentry可视化",
+                        "服务控制管理，道具数据统计监测"
+                    ],
+                    "architecture": "前后端分离 + 微服务架构",
+                    "impact": "提供完整的游戏运营管理解决方案"
+                },
+                {
+                    "id": "engine-plugins",
+                    "name": "虚幻5插件开发和Unity插件开发",
+                    "description": "游戏引擎插件开发，提供监控和日志功能",
+                    "role": "插件开发工程师",
+                    "duration": "2025-05 至今",
+                    "technologies": [
+                        "C++",
+                        "C#",
+                        "Python"
+                    ],
+                    "highlights": [
+                        "使用C++和C#实现Sentry服务告警组件",
+                        "Prometheus监测服务组件",
+                        "ES日志上传组件",
+                        "ComfyUI插件开发：使用Python实现提示词模板插件",
+                        "接入LLM模型接入SSE流传输插件"
+                    ],
+                    "architecture": "插件化架构",
+                    "impact": "提升游戏开发和运维效率"
+                }
+            ]
+        },
+        {
+            "id": "yangxun-tech",
+            "company": "扬讯科技有限公司",
+            "position": "后端开发工程师",
+            "startDate": "2024-02-15",
+            "endDate": "2025-02-28",
+            "duration": "1年",
+            "location": "广州",
+            "employmentType": "全职",
+            "description": "专注于游戏后端开发，参与多个大型游戏项目的开发和维护。主要负责微服务架构设计、游戏业务逻辑开发、GM工具系统开发以及机器人调度系统。",
+            "responsibilities": [
+                "游戏服务器业务逻辑开发",
+                "微服务架构设计与实现",
+                "数据库设计和优化",
+                "GM工具开发和维护"
+            ],
+            "achievements": [
+                "成功开发《猎人启程》游戏服务器，支持万级并发用户",
+                "实现《奥特曼OL》GM工具系统，提升运营效率80%",
+                "优化游戏性能，减少响应时间50%，提升用户体验",
+                "建立完善的开发和部署流程，实现CI/CD自动化",
+                "设计并实现微服务架构，提升系统可维护性和扩展性",
+                "开发机器人调度系统，实现智能化游戏测试"
+            ],
+            "companyInfo": {
+                "industry": "游戏开发",
+                "scale": "中型企业",
+                "businessScope": "手机游戏开发、IP授权游戏、游戏运营",
+                "workEnvironment": "敏捷开发、团队协作、技术创新"
+            },
+            "technologies": [
+                "Golang",
+                "gRPC",
+                "WebSocket",
+                "MySQL",
+                "Redis",
+                "Docker",
+                "Persist",
+                "SynMap",
+                "RWMap",
+                "CSVLoader"
+            ],
+            "projects": [
+                {
+                    "id": "hunter-journey",
+                    "name": "猎人启程",
+                    "description": "正版全职猎人IP授权的卡牌策略性游戏",
+                    "role": "游戏服务器开发工程师",
+                    "duration": "2024-02 至 2025-02",
+                    "technologies": [
+                        "gRPC",
+                        "WebSocket",
+                        "MySQL",
+                        "Persist",
+                        "SynMap",
+                        "RWMap",
+                        "CSVLoader"
+                    ],
+                    "highlights": [
+                        "采用微服务架构，日志服、战区服、网关服、游戏服、账号服、配置服",
+                        "主要参与游戏服的业务开发和战区服的流程开发",
+                        "主要负责游戏内部的相关养成业务",
+                        "额外玩法业务和充值业务和排行榜相关方面",
+                        "GM工具开发",
+                        "游戏服采用gRPC协议WebSocket协议数据库采用MySQL + Persist工具"
+                    ],
+                    "architecture": "微服务架构：多服务协同工作",
+                    "impact": "成功上线运营，获得良好用户反馈"
+                },
+                {
+                    "id": "ultraman-ol-tools",
+                    "name": "奥特曼OL工具开发",
+                    "description": "正版奥特曼授权的卡牌策略游戏GM工具系统",
+                    "role": "GM工具开发工程师",
+                    "duration": "2024-06 至 2025-02",
+                    "technologies": [
+                        "Golang",
+                        "协程池",
+                        "状态机",
+                        "数据监控"
+                    ],
+                    "highlights": [
+                        "主要参与GM工具开发",
+                        "主要负责协程池和机器人调度相关模块功能",
+                        "写获取用户在线状态，数据监控",
+                        "机器人状态机管理相关算法",
+                        "目前只设计到慢速版本以及全随机状态机",
+                        "还有相关业务的GM工具开发"
+                    ],
+                    "architecture": "模块化架构 + 状态机模式",
+                    "impact": "大幅提升游戏运营效率"
+                }
+            ]
+        },
+        {
+            "id": "wuhan-huajin-tech",
+            "company": "武汉华谨科技有限公司",
+            "position": "研发组web后端工程师",
+            "startDate": "2022-09-14",
+            "endDate": "2023-09-28",
+            "duration": "1年1个月",
+            "location": "武汉",
+            "employmentType": "全职",
+            "description": "负责运维后端开发和协议对接，参与多个智能运维管理系统的开发。专注于中控集控管理、智能设备监控、第三方系统协议对接以及AI姿态识别系统开发。",
+            "responsibilities": [
+                "运维系统后端开发",
+                "第三方系统协议对接",
+                "智能监控系统开发",
+                "数据分析和处理"
+            ],
+            "achievements": [
+                "成功开发中控集控管理系统，为后续项目奠定技术基础",
+                "实现多个高校智能运维管理系统，覆盖5所高校",
+                "完成10+个第三方系统协议对接，包括HTTP、TCP、MQTT协议",
+                "开发3D姿态识别系统，实现多相机同步识别",
+                "集成AI深度学习技术，实现智能设备巡检",
+                "建立完整的流媒体直播服务架构"
+            ],
+            "companyInfo": {
+                "industry": "智能运维/教育科技",
+                "scale": "中小型企业",
+                "businessScope": "智能运维系统、教育信息化、AI技术应用",
+                "workEnvironment": "技术导向、项目驱动、学习成长"
+            },
+            "technologies": [
+                "MQTT",
+                "Gin",
+                "GORM",
+                "Redis",
+                "MySQL",
+                "Docker",
+                "WebSocket",
+                "Python",
+                "Flask",
+                "YOLO3",
+                "FFmpeg"
+            ],
+            "projects": [
+                {
+                    "id": "central-control-management",
+                    "name": "中控集控管理系统",
+                    "description": "智能设备集中控制管理系统",
+                    "role": "后端开发工程师",
+                    "duration": "2022-09 至 2023-03",
+                    "technologies": [
+                        "MQTT",
+                        "Gin",
+                        "GORM",
+                        "Redis",
+                        "MySQL",
+                        "Docker",
+                        "WebSocket"
+                    ],
+                    "highlights": [
+                        "实现登陆验证、多级日志管理",
+                        "动态加载配置文件、动态路由、动态菜单",
+                        "JWT鉴权、Casbin权限管理",
+                        "集控管理、环境显示定时任务等功能"
+                    ],
+                    "architecture": "微服务架构 + 权限管理系统",
+                    "impact": "为后续项目奠定了技术基础"
+                },
+                {
+                    "id": "wuhan-textile-university",
+                    "name": "武汉纺织大学智能运维管理",
+                    "description": "高校智能运维管理系统，集成AI巡检功能",
+                    "role": "全栈开发工程师",
+                    "duration": "2023-01 至 2023-06",
+                    "technologies": [
+                        "MQTT",
+                        "Gin",
+                        "GORM",
+                        "Golib",
+                        "Redis",
+                        "MySQL",
+                        "Docker",
+                        "WebSocket",
+                        "Python",
+                        "Flask",
+                        "YOLO3",
+                        "FFmpeg"
+                    ],
+                    "highlights": [
+                        "在集控管理的基本功能上增加流媒体直播服务",
+                        "深度学习智能巡检设备状态",
+                        "运维数据统计和矫正功能",
+                        "一键自动关闭设备功能"
+                    ],
+                    "architecture": "AI + 物联网 + 流媒体架构",
+                    "impact": "显著提升高校设备管理效率"
+                },
+                {
+                    "id": "protocol-integration",
+                    "name": "第三方系统协议对接",
+                    "description": "多个教育机构的中控系统协议对接项目",
+                    "role": "协议对接工程师",
+                    "duration": "2022-10 至 2023-09",
+                    "technologies": [
+                        "HTTP",
+                        "TCP",
+                        "MQTT"
+                    ],
+                    "highlights": [
+                        "武汉纺织大学三盟中控对接",
+                        "城市职业技术学院艾迪斯特和快捷中控对接：HTTP、TCP长报文协议和MQTT协议对接",
+                        "皖南医学院智能教室管理系统：对接学校数据库实现自动上下课功能",
+                        "华信有道分布式资源管理平台",
+                        "科大讯飞爱课堂AI集控管理平台等"
+                    ],
+                    "architecture": "协议适配器模式",
+                    "impact": "成功对接多个第三方系统"
+                },
+                {
+                    "id": "pose-recognition-system",
+                    "name": "河北体院相机矩阵姿态识别系统",
+                    "description": "基于多相机的3D姿态识别系统",
+                    "role": "姿态识别开发工程师",
+                    "duration": "2023-07 至 2023-09",
+                    "technologies": [
+                        "GStreamer",
+                        "AlphaPose",
+                        "Cairo",
+                        "SMPL",
+                        "BGFS",
+                        "ColMap"
+                    ],
+                    "highlights": [
+                        "同步相机集群H264视频流进行姿态识别",
+                        "渲染3D姿态图",
+                        "主要负责姿态识别部分"
+                    ],
+                    "architecture": "多相机同步 + AI识别架构",
+                    "impact": "为体育训练提供科学分析工具"
+                }
+            ]
+        }
+    ],
+    "personalProjects": [
+        {
+            "id": "senran-massage-miniprogram",
+            "name": "森然推拿小程序",
+            "description": "按摩服务预约小程序，支持店铺、技师、项目筛选下单",
+            "role": "全栈开发工程师",
+            "startDate": "2023-10",
+            "endDate": "2024-01",
+            "status": "已完成",
+            "technologies": [
+                "UniApp",
+                "GORM",
+                "Gin",
+                "MinIO",
+                "Viper",
+                "Zap",
+                "Docker",
+                "MySQL",
+                "Redis",
+                "Ants",
+                "Cobra",
+                "JWT",
+                "Protobuf",
+                "Vue3",
+                "TypeScript",
+                "Element Plus",
+                "Vite"
+            ],
+            "highlights": [
+                "支持小程序端店铺、技师、项目筛选下单",
+                "后台管理控制管理数据",
+                "数据分析订单分析报表分析",
+                "使用自研框架开发",
+                "前后端分离架构"
+            ],
+            "github": "",
+            "demo": "",
+            "impact": "为本地按摩服务行业提供数字化解决方案"
+        },
+        {
+            "id": "persist-tool-refactor",
+            "name": "Persist工具重构",
+            "description": "游戏后端数据持久化工具，基于AST语法树生成数据响应接口",
+            "role": "核心开发者",
+            "startDate": "2024-03",
+            "endDate": "2024-06",
+            "status": "已完成",
+            "technologies": [
+                "Golang",
+                "AST",
+                "XORM",
+                "Sentry"
+            ],
+            "highlights": [
+                "采用AST语法树针对Go数据模型生成数据响应接口",
+                "针对模型后缀Local, Share, Global采用不同策略",
+                "实现自动销毁和协程临界访问",
+                "数据结构流序列化转换",
+                "特定字段同步、索引、查询",
+                "增加Sentry错误上传",
+                "惰性同步机制"
+            ],
+            "github": "",
+            "impact": "显著提升游戏后端开发效率"
+        },
+        {
+            "id": "csvloader-tool-refactor",
+            "name": "CSVLoader工具重构",
+            "description": "策划表载入工具，将Excel文件转换为Go数据模型",
+            "role": "核心开发者",
+            "startDate": "2024-07",
+            "endDate": "2024-09",
+            "status": "已完成",
+            "technologies": [
+                "Golang",
+                "AST",
+                "CSV解析"
+            ],
+            "highlights": [
+                "支持将xlsx文件转为csv文件",
+                "采用AST语法树和CSV解析库生成Go数据模型",
+                "支持联合查询和自动排序",
+                "自定义数据结构和嵌入式载入二进制",
+                "可在Go程序中直接调用xlsx字段数据"
+            ],
+            "github": "",
+            "impact": "让策划数据使用如同ORM操作数据库般简单"
+        },
+        {
+            "id": "rvc-application",
+            "name": "RVC应用开发",
+            "description": "虚拟变声器程序，支持多种声线变声",
+            "role": "全栈开发工程师",
+            "startDate": "2024-10",
+            "endDate": "2024-12",
+            "status": "已完成",
+            "technologies": [
+                "Rust",
+                "Tauri",
+                "Vue3",
+                "TypeScript",
+                "Vite",
+                "Element Plus",
+                "Persist",
+                "Gin",
+                "MinIO",
+                "Viper",
+                "Zap",
+                "Docker",
+                "MySQL",
+                "Redis",
+                "Ants",
+                "Cobra",
+                "JWT",
+                "Protobuf"
+            ],
+            "highlights": [
+                "基于Retrieval-based-Voice-Conversion-WebUI二次开发",
+                "实现卡密系统和分销管理",
+                "邀请系统和充值兑换功能",
+                "使用Rust和Tauri框架",
+                "Vue-Vben-Admin框架"
+            ],
+            "github": "",
+            "impact": "为音频处理领域提供专业工具"
+        },
+        {
+            "id": "taobao-automation",
+            "name": "淘宝自动化管理系统",
+            "description": "淘宝联盟自动化管理和购物助手",
+            "role": "全栈开发工程师",
+            "startDate": "2024-05",
+            "endDate": "2024-08",
+            "status": "已完成",
+            "technologies": [
+                "GORM",
+                "Gin",
+                "MinIO",
+                "Viper",
+                "Zap",
+                "Docker",
+                "MySQL",
+                "Redis",
+                "Ants",
+                "Cobra",
+                "JWT",
+                "Protobuf",
+                "Vue3",
+                "TypeScript",
+                "Element Plus",
+                "Vite"
+            ],
+            "highlights": [
+                "自动抢券和购物车监控",
+                "订单监控自动下单",
+                "自动加入库存管理",
+                "淘宝联盟自动化生成返利短链",
+                "完整的自动化管理流程"
+            ],
+            "github": "",
+            "impact": "提升电商购物效率和收益"
+        },
+        {
+            "id": "pump-monitoring-system",
+            "name": "Pump监测管理系统",
+            "description": "Twitter用户推文监测和加密货币分析系统",
+            "role": "全栈开发工程师",
+            "startDate": "2024-11",
+            "endDate": "2025-01",
+            "status": "已完成",
+            "technologies": [
+                "Twitter API",
+                "LLM",
+                "SSE",
+                "微信机器人",
+                "Telegram机器人",
+                "钉钉机器人",
+                "Bark推送",
+                "短信推送"
+            ],
+            "highlights": [
+                "监测Twitter用户发送的推文",
+                "筛选CA链接和推特用户改名",
+                "推特账户分析和推文分析",
+                "CA推文防删和时间轴查看",
+                "K线分析和代币分析",
+                "接入CMP+LLM大模型分析",
+                "多平台机器人和推送集成"
+            ],
+            "github": "",
+            "impact": "为加密货币投资提供数据分析工具"
+        }
+    ],
+    "experienceSummary": {
+        "totalYears": 4,
+        "totalCompanies": 3,
+        "totalProjects": 15,
+        "keyAchievements": [
+            "4年游戏后端开发经验，参与多个大型项目开发",
+            "精通微服务架构设计和实现，具备完整的技术栈能力",
+            "具备全栈开发能力，前后端技术栈完整",
+            "丰富的第三方系统集成和协议对接经验",
+            "AI和机器学习技术应用经验，包括深度学习和大模型集成",
+            "完整的项目生命周期管理经验，从架构设计到部署运维",
+            "擅长性能优化和系统监控，具备大规模系统管理经验"
+        ],
+        "timeline": [
+            {
+                "period": "2022.09 - 2023.09",
+                "company": "武汉华谨科技有限公司",
+                "position": "研发组web后端工程师",
+                "focus": "运维系统开发、协议对接、AI应用",
+                "keyProjects": [
+                    "中控集控管理系统",
+                    "智能运维管理",
+                    "姿态识别系统"
+                ]
+            },
+            {
+                "period": "2024.02 - 2025.02",
+                "company": "扬讯科技有限公司",
+                "position": "后端开发工程师",
+                "focus": "游戏后端开发、微服务架构、GM工具",
+                "keyProjects": [
+                    "猎人启程",
+                    "奥特曼OL工具开发"
+                ]
+            },
+            {
+                "period": "2025.03 - 至今",
+                "company": "神盾未来科技有限公司",
+                "position": "游戏后端开发工程师",
+                "focus": "差分帧同步、算力管理、全栈开发",
+                "keyProjects": [
+                    "三国决战天下",
+                    "算力服务器集控管理",
+                    "GM游戏后台"
+                ]
+            }
+        ],
+        "industryExperience": [
+            {
+                "industry": "游戏开发",
+                "years": 3,
+                "description": "游戏服务器架构、差分帧同步、微服务架构、GM工具开发、机器人调度系统"
+            },
+            {
+                "industry": "智能运维",
+                "years": 1,
+                "description": "中控集控管理、设备监控、协议对接、AI巡检、流媒体直播服务"
+            },
+            {
+                "industry": "AI/机器学习",
+                "years": 2,
+                "description": "深度学习姿态识别、大模型集成、ComfyUI插件开发、数据分析"
+            },
+            {
+                "industry": "算力管理",
+                "years": 1,
+                "description": "GPU集群管理、算力服务器监控、分布式计算资源调度"
+            }
+        ],
+        "technicalGrowth": [
+            "从单体应用到微服务架构的演进，掌握分布式系统设计",
+            "从传统后端到全栈开发的扩展，具备前后端一体化开发能力",
+            "从业务开发到架构设计的提升，能够独立设计大型系统架构",
+            "从单一技术栈到多技术栈的掌握，涵盖Golang、Python、C++、Rust等",
+            "从传统开发到AI集成的转变，具备大模型和深度学习应用经验",
+            "从小规模系统到大规模集群管理的跨越，管理5万张GPU显卡经验"
+        ],
+        "careerProgression": {
+            "startLevel": "初级后端工程师",
+            "currentLevel": "高级游戏后端工程师",
+            "nextTarget": "技术架构师/技术专家",
+            "keyMilestones": [
+                {
+                    "year": "2022",
+                    "milestone": "入行后端开发",
+                    "achievement": "掌握基础后端技术栈，完成第一个商业项目"
+                },
+                {
+                    "year": "2023",
+                    "milestone": "技术栈扩展",
+                    "achievement": "掌握AI技术应用，完成多个复杂系统集成"
+                },
+                {
+                    "year": "2024",
+                    "milestone": "游戏领域专精",
+                    "achievement": "深入游戏后端开发，掌握微服务架构设计"
+                },
+                {
+                    "year": "2025",
+                    "milestone": "架构能力提升",
+                    "achievement": "独立设计大规模分布式系统，管理超大规模集群"
+                }
+            ]
+        },
+        "coreCompetencies": [
+            {
+                "category": "技术架构",
+                "skills": [
+                    "微服务架构设计",
+                    "分布式系统",
+                    "高并发处理",
+                    "性能优化"
+                ],
+                "level": "专家级"
+            },
+            {
+                "category": "游戏开发",
+                "skills": [
+                    "游戏服务器开发",
+                    "帧同步架构",
+                    "GM工具开发",
+                    "机器人调度"
+                ],
+                "level": "专家级"
+            },
+            {
+                "category": "AI技术",
+                "skills": [
+                    "深度学习应用",
+                    "大模型集成",
+                    "计算机视觉",
+                    "智能监控"
+                ],
+                "level": "高级"
+            },
+            {
+                "category": "全栈开发",
+                "skills": [
+                    "前端开发",
+                    "后端开发",
+                    "数据库设计",
+                    "DevOps"
+                ],
+                "level": "高级"
+            }
+        ]
+    }
+}

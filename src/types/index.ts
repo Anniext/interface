@@ -7,3 +7,4 @@ export * from "./canvas";
 export * from "./physics";
 export * from "./animation";
 export * from "./common";
+export * from "./icons";

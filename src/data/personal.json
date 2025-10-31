@@ -1,0 +1,66 @@
+{
+    "personalInfo": {
+        "name": "徐思宏",
+        "age": 25,
+        "birthDate": "2000-06-07",
+        "location": "广州市",
+        "email": "1014797089@qq.com",
+        "phone": "18671269102",
+        "expectedSalary": "21k",
+        "birthPlace": "孝感",
+        "avatar": "/images/avatar.jpg",
+        "bio": "拥有4年游戏后端开发经验的全栈工程师，专注于高性能游戏服务器架构设计与开发。熟练掌握Go、Python、Vue3等技术栈，具备丰富的微服务架构和分布式系统开发经验。",
+        "careerObjective": "致力于成为优秀的游戏后端架构师，在游戏服务器性能优化、分布式系统设计和团队技术管理方面持续精进，为公司创造更大价值。",
+        "personalWebsite": "https://annieduoduo.com",
+        "github": "",
+        "linkedin": "",
+        "wechat": "",
+        "summary": {
+            "experience": "4年游戏后端开发经验",
+            "specialties": [
+                "游戏服务器架构",
+                "微服务开发",
+                "全栈开发",
+                "性能优化"
+            ],
+            "industries": [
+                "游戏开发",
+                "智能运维",
+                "数据分析"
+            ],
+            "teamSize": "参与过多个大型项目团队协作"
+        },
+        "personalTraits": [
+            "技术热情高涨，持续学习新技术",
+            "具备良好的问题分析和解决能力",
+            "团队协作能力强，沟通表达清晰",
+            "注重代码质量和系统架构设计",
+            "具备全栈开发视野和产品思维"
+        ],
+        "languages": [
+            {
+                "name": "中文",
+                "level": "母语",
+                "proficiency": 100
+            },
+            {
+                "name": "英语",
+                "level": "良好",
+                "proficiency": 75
+            }
+        ],
+        "availability": {
+            "status": "在职，考虑新机会",
+            "noticePeriod": "1个月",
+            "workType": [
+                "全职",
+                "远程"
+            ],
+            "preferredLocation": [
+                "广州",
+                "深圳",
+                "远程"
+            ]
+        }
+    }
+}

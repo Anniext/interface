@@ -1,0 +1,411 @@
+{
+    "skillCategories": [
+        {
+            "id": "programming-languages",
+            "name": "编程语言",
+            "color": "#3B82F6",
+            "icon": "code",
+            "skills": [
+                {
+                    "id": "golang",
+                    "name": "Golang",
+                    "level": 9,
+                    "experience": 4,
+                    "category": "language",
+                    "icon": "golang",
+                    "color": "#00ADD8",
+                    "description": "主要开发语言，具备丰富的游戏后端开发经验"
+                },
+                {
+                    "id": "python",
+                    "name": "Python",
+                    "level": 8,
+                    "experience": 3,
+                    "category": "language",
+                    "icon": "python",
+                    "color": "#3776AB",
+                    "description": "用于数据分析、AI模型集成和自动化脚本开发"
+                },
+                {
+                    "id": "cpp",
+                    "name": "C++",
+                    "level": 7,
+                    "experience": 2,
+                    "category": "language",
+                    "icon": "cpp",
+                    "color": "#00599C",
+                    "description": "用于虚幻5插件开发和高性能计算"
+                },
+                {
+                    "id": "rust",
+                    "name": "Rust",
+                    "level": 6,
+                    "experience": 1,
+                    "category": "language",
+                    "icon": "rust",
+                    "color": "#000000",
+                    "description": "用于RVC应用开发，系统级编程"
+                },
+                {
+                    "id": "typescript",
+                    "name": "TypeScript",
+                    "level": 8,
+                    "experience": 3,
+                    "category": "language",
+                    "icon": "typescript",
+                    "color": "#3178C6",
+                    "description": "前端开发主要语言，类型安全的JavaScript"
+                },
+                {
+                    "id": "csharp",
+                    "name": "C#",
+                    "level": 6,
+                    "experience": 1,
+                    "category": "language",
+                    "icon": "csharp",
+                    "color": "#239120",
+                    "description": "Unity插件开发"
+                }
+            ]
+        },
+        {
+            "id": "backend-frameworks",
+            "name": "后端框架",
+            "color": "#10B981",
+            "icon": "server",
+            "skills": [
+                {
+                    "id": "gin",
+                    "name": "Gin",
+                    "level": 9,
+                    "experience": 4,
+                    "category": "framework",
+                    "icon": "gin",
+                    "color": "#00ADD8",
+                    "description": "Go语言Web框架，主要用于API开发"
+                },
+                {
+                    "id": "grpc",
+                    "name": "gRPC",
+                    "level": 8,
+                    "experience": 3,
+                    "category": "framework",
+                    "icon": "grpc",
+                    "color": "#4285F4",
+                    "description": "微服务间通信协议"
+                },
+                {
+                    "id": "websocket",
+                    "name": "WebSocket",
+                    "level": 8,
+                    "experience": 3,
+                    "category": "framework",
+                    "icon": "websocket",
+                    "color": "#FF6B6B",
+                    "description": "实时通信协议，游戏服务器核心技术"
+                },
+                {
+                    "id": "flask",
+                    "name": "Flask",
+                    "level": 7,
+                    "experience": 2,
+                    "category": "framework",
+                    "icon": "flask",
+                    "color": "#000000",
+                    "description": "Python轻量级Web框架"
+                }
+            ]
+        },
+        {
+            "id": "frontend-frameworks",
+            "name": "前端框架",
+            "color": "#8B5CF6",
+            "icon": "layout",
+            "skills": [
+                {
+                    "id": "vue3",
+                    "name": "Vue 3",
+                    "level": 8,
+                    "experience": 3,
+                    "category": "framework",
+                    "icon": "vue",
+                    "color": "#4FC08D",
+                    "description": "现代前端框架，Composition API"
+                },
+                {
+                    "id": "vite",
+                    "name": "Vite",
+                    "level": 8,
+                    "experience": 2,
+                    "category": "tool",
+                    "icon": "vite",
+                    "color": "#646CFF",
+                    "description": "现代前端构建工具"
+                },
+                {
+                    "id": "element-plus",
+                    "name": "Element Plus",
+                    "level": 8,
+                    "experience": 2,
+                    "category": "framework",
+                    "icon": "element",
+                    "color": "#409EFF",
+                    "description": "Vue 3 UI组件库"
+                },
+                {
+                    "id": "uniapp",
+                    "name": "UniApp",
+                    "level": 7,
+                    "experience": 2,
+                    "category": "framework",
+                    "icon": "uniapp",
+                    "color": "#2B9939",
+                    "description": "跨平台小程序开发框架"
+                },
+                {
+                    "id": "tauri",
+                    "name": "Tauri",
+                    "level": 6,
+                    "experience": 1,
+                    "category": "framework",
+                    "icon": "tauri",
+                    "color": "#FFC131",
+                    "description": "跨平台桌面应用开发框架"
+                }
+            ]
+        },
+        {
+            "id": "databases",
+            "name": "数据库",
+            "color": "#F59E0B",
+            "icon": "database",
+            "skills": [
+                {
+                    "id": "mysql",
+                    "name": "MySQL",
+                    "level": 9,
+                    "experience": 4,
+                    "category": "database",
+                    "icon": "mysql",
+                    "color": "#4479A1",
+                    "description": "主要关系型数据库，游戏数据存储"
+                },
+                {
+                    "id": "redis",
+                    "name": "Redis",
+                    "level": 8,
+                    "experience": 3,
+                    "category": "database",
+                    "icon": "redis",
+                    "color": "#DC382D",
+                    "description": "内存数据库，缓存和会话存储"
+                },
+                {
+                    "id": "elasticsearch",
+                    "name": "Elasticsearch",
+                    "level": 7,
+                    "experience": 2,
+                    "category": "database",
+                    "icon": "elasticsearch",
+                    "color": "#005571",
+                    "description": "搜索引擎和日志分析"
+                }
+            ]
+        },
+        {
+            "id": "devops-tools",
+            "name": "运维工具",
+            "color": "#EF4444",
+            "icon": "tools",
+            "skills": [
+                {
+                    "id": "docker",
+                    "name": "Docker",
+                    "level": 8,
+                    "experience": 3,
+                    "category": "tool",
+                    "icon": "docker",
+                    "color": "#2496ED",
+                    "description": "容器化部署和开发环境管理"
+                },
+                {
+                    "id": "nginx",
+                    "name": "Nginx",
+                    "level": 7,
+                    "experience": 3,
+                    "category": "tool",
+                    "icon": "nginx",
+                    "color": "#009639",
+                    "description": "Web服务器和反向代理"
+                },
+                {
+                    "id": "gitlab-ci",
+                    "name": "GitLab CI/CD",
+                    "level": 7,
+                    "experience": 2,
+                    "category": "tool",
+                    "icon": "gitlab",
+                    "color": "#FC6D26",
+                    "description": "自动化部署和持续集成"
+                },
+                {
+                    "id": "prometheus",
+                    "name": "Prometheus",
+                    "level": 6,
+                    "experience": 1,
+                    "category": "tool",
+                    "icon": "prometheus",
+                    "color": "#E6522C",
+                    "description": "监控和告警系统"
+                },
+                {
+                    "id": "sentry",
+                    "name": "Sentry",
+                    "level": 6,
+                    "experience": 1,
+                    "category": "tool",
+                    "icon": "sentry",
+                    "color": "#362D59",
+                    "description": "错误监控和性能分析"
+                }
+            ]
+        },
+        {
+            "id": "message-queues",
+            "name": "消息队列",
+            "color": "#06B6D4",
+            "icon": "message",
+            "skills": [
+                {
+                    "id": "rabbitmq",
+                    "name": "RabbitMQ",
+                    "level": 8,
+                    "experience": 3,
+                    "category": "tool",
+                    "icon": "rabbitmq",
+                    "color": "#FF6600",
+                    "description": "消息队列中间件"
+                },
+                {
+                    "id": "mqtt",
+                    "name": "MQTT",
+                    "level": 7,
+                    "experience": 2,
+                    "category": "tool",
+                    "icon": "mqtt",
+                    "color": "#660066",
+                    "description": "物联网消息传输协议"
+                }
+            ]
+        },
+        {
+            "id": "game-development",
+            "name": "游戏开发",
+            "color": "#EC4899",
+            "icon": "game",
+            "skills": [
+                {
+                    "id": "matter-js",
+                    "name": "Matter.js",
+                    "level": 7,
+                    "experience": 1,
+                    "category": "framework",
+                    "icon": "physics",
+                    "color": "#FF6B6B",
+                    "description": "2D物理引擎"
+                },
+                {
+                    "id": "unity",
+                    "name": "Unity",
+                    "level": 6,
+                    "experience": 1,
+                    "category": "tool",
+                    "icon": "unity",
+                    "color": "#000000",
+                    "description": "游戏引擎插件开发"
+                },
+                {
+                    "id": "unreal",
+                    "name": "Unreal Engine 5",
+                    "level": 6,
+                    "experience": 1,
+                    "category": "tool",
+                    "icon": "unreal",
+                    "color": "#0E1128",
+                    "description": "虚幻引擎插件开发"
+                },
+                {
+                    "id": "frame-sync",
+                    "name": "帧同步架构",
+                    "level": 8,
+                    "experience": 2,
+                    "category": "architecture",
+                    "icon": "sync",
+                    "color": "#4F46E5",
+                    "description": "游戏同步机制设计"
+                }
+            ]
+        },
+        {
+            "id": "ai-ml",
+            "name": "AI/机器学习",
+            "color": "#7C3AED",
+            "icon": "brain",
+            "skills": [
+                {
+                    "id": "yolo",
+                    "name": "YOLO",
+                    "level": 6,
+                    "experience": 1,
+                    "category": "framework",
+                    "icon": "ai",
+                    "color": "#FF6B35",
+                    "description": "目标检测算法"
+                },
+                {
+                    "id": "comfyui",
+                    "name": "ComfyUI",
+                    "level": 7,
+                    "experience": 1,
+                    "category": "tool",
+                    "icon": "ai",
+                    "color": "#8B5A2B",
+                    "description": "AI图像生成工具"
+                },
+                {
+                    "id": "llm",
+                    "name": "大语言模型",
+                    "level": 6,
+                    "experience": 1,
+                    "category": "framework",
+                    "icon": "ai",
+                    "color": "#9333EA",
+                    "description": "LLM集成和应用开发"
+                }
+            ]
+        }
+    ],
+    "skillSummary": {
+        "totalSkills": 35,
+        "averageLevel": 7.2,
+        "totalExperience": 4,
+        "strongestCategories": [
+            "programming-languages",
+            "backend-frameworks",
+            "databases"
+        ],
+        "recentlyLearned": [
+            "rust",
+            "tauri",
+            "llm",
+            "comfyui"
+        ],
+        "certifications": [],
+        "learningGoals": [
+            "深入学习Rust系统编程",
+            "掌握更多AI/ML技术栈",
+            "提升分布式系统架构能力",
+            "学习云原生技术栈"
+        ]
+    }
+}

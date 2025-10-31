@@ -23,11 +23,6 @@
         "test:ui": "vitest --ui"
     },
     "dependencies": {
-        "@eslint/js": "^9.38.0",
-        "@eslint/json": "^0.13.2",
-        "@eslint/markdown": "^7.5.0",
-        "@tailwindcss/vite": "^4.1.16",
-        "globals": "^16.4.0",
         "gsap": "^3.13.0",
         "lottie-web": "^5.13.0",
         "matter-js": "^0.20.0",
@@ -37,6 +32,11 @@
         "vue-router": "^4.6.3"
     },
     "devDependencies": {
+        "@eslint/js": "^9.38.0",
+        "@eslint/json": "^0.13.2",
+        "@eslint/markdown": "^7.5.0",
+        "@tailwindcss/vite": "^4.1.16",
+        "globals": "^16.4.0",
         "@types/matter-js": "^0.20.2",
         "@types/node": "^24.6.0",
         "@vitejs/plugin-vue": "^6.0.1",
