@@ -4,7 +4,7 @@
         :class="containerClasses"
         :style="containerStyle"
         @mouseenter="handleMouseEnter"
-        @mouseleave="handleMouseLeave" />
+        @mouseleave="handleMouseLeave"></div>
 </template>
 
 <script setup lang="ts">

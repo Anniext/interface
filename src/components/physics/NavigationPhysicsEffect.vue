@@ -13,7 +13,7 @@
             }"
             class="absolute inset-0"
             @mousemove="handleMouseMove"
-            @mouseleave="handleMouseLeave" />
+            @mouseleave="handleMouseLeave"></canvas>
 
         <!-- 连接线渲染层 -->
         <svg
@@ -119,7 +119,7 @@
                 <div
                     v-if="navItem.isMagnetic"
                     class="absolute -inset-1 rounded-xl border-2 border-dashed animate-pulse"
-                    :style="{ borderColor: navItem.glowColor }" />
+                    :style="{ borderColor: navItem.glowColor }"></div>
 
                 <!-- 点击波纹效果 -->
                 <div
@@ -129,7 +129,7 @@
                         opacity: navItem.ripple.opacity,
                         borderColor: navItem.glowColor,
                     }"
-                    class="absolute inset-0 rounded-xl border-2 pointer-events-none" />
+                    class="absolute inset-0 rounded-xl border-2 pointer-events-none"></div>
             </div>
         </div>
 
@@ -144,7 +144,7 @@
                 height: `${magneticRange * 2}px`,
             }"
             class="absolute rounded-full border border-blue-400 opacity-30 pointer-events-none"
-            :class="isMouseInRange ? 'animate-pulse' : ''" />
+            :class="isMouseInRange ? 'animate-pulse' : ''"></div>
 
         <!-- 控制面板 -->
         <div
@@ -259,7 +259,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted, onBeforeUnmount, computed } from "vue";
+import {
+    ref,
+    reactive,
+    onMounted,
+    onBeforeUnmount,
+    computed,
+    watch,
+} from "vue";
 import { gsap } from "gsap";
 import { PhysicsAnimationEffects } from "@/utils/physics/SimplePhysicsAnimationEffects";
 import type { INavigationPhysicsConfig } from "@/utils/physics/SimplePhysicsAnimationEffects";

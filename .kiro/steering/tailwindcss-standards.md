@@ -13,7 +13,8 @@
 
 ```vue
 <!-- 按功能分组排列类名 -->
-<div class="
+<div
+    class="
   <!-- 布局 -->
   flex items-center justify-between
   <!-- 尺寸 -->
@@ -22,7 +23,7 @@
   bg-white border-b border-gray-200
   <!-- 响应式 -->
   md:px-6 lg:px-8
-">
+"></div>
 ```
 
 ### 响应式设计
@@ -36,20 +37,20 @@
 ```javascript
 // tailwind.config.js
 module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          50: "#eff6ff",
-          500: "#3b82f6",
-          900: "#1e3a8a",
+    theme: {
+        extend: {
+            colors: {
+                primary: {
+                    50: "#eff6ff",
+                    500: "#3b82f6",
+                    900: "#1e3a8a",
+                },
+            },
+            fontFamily: {
+                sans: ["Inter", "system-ui", "sans-serif"],
+            },
         },
-      },
-      fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-      },
     },
-  },
 };
 ```
 
@@ -63,9 +64,9 @@ module.exports = {
 
 ```vue
 <template>
-  <div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-    <!-- 内容 -->
-  </div>
+    <div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+        <!-- 内容 -->
+    </div>
 </template>
 ```
 

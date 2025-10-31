@@ -16,7 +16,7 @@
             ref="progressContainer"
             class="progress-bar-container"
             :class="{ 'is-animating': isAnimating }">
-            <!-- 背景轨道 */
+            <!-- 背景轨道 -->
             <div class="progress-track" :style="trackStyle">
                 <!-- 进度条 -->
                 <div
@@ -26,12 +26,12 @@
                     :style="progressBarStyle">
                     <!-- 进度条内的光效 -->
                     <div v-if="showGlow" class="progress-glow"></div>
-                    
-                    <!-- 进度条纹理 */
+
+                    <!-- 进度条纹理 -->
                     <div v-if="showTexture" class="progress-texture"></div>
                 </div>
 
-                <!-- 进度指示器 */
+                <!-- 进度指示器 -->
                 <div
                     v-if="showIndicator"
                     ref="progressIndicator"
@@ -159,7 +159,9 @@ const progressBarStyle = computed(() => {
     };
 
     if (props.gradient.length > 1) {
-        style.background = `linear-gradient(90deg, ${props.gradient.join(", ")})`;
+        style.background = `linear-gradient(90deg, ${props.gradient.join(
+            ", ",
+        )})`;
     } else {
         style.backgroundColor = props.color;
     }
@@ -201,83 +203,15 @@ function startAnimation(): void {
         duration: props.duration,
         ease: props.ease,
         onUpdate: () => {
-            const progress = gsap.getProperty(progressBar.value!, "width") as string;
+            const progress = gsap.getProperty(
+                progressBar.value!,
+                "width",
+            ) as string;
             const numericProgress = parseFloat(progress);
             currentProgress.value = numericProgress;
             emit("animationUpdate", numericProgress);
         },
     });
-
-    // 进度指示器动画
-    if (props.showIndicator && progressIndicator.value) {
-        tl.to(
-            progressIndicator.value,
-            {
-                left: `${props.level}%`,
-                duration: props.duration,
-                ease: props.ease,
-            },
-            0, // 与进度条同时开始
-        );
-
-        // 指示器脉冲动画
-        tl.to(
-            progressIndicator.value.querySelector(".indicator-pulse"),
-            {
-                scale: 1.5,
-                opacity: 0,
-                duration: 0.6,
-                ease: "power2.out",
-                repeat: -1,
-                yoyo: false,
-            },
-            0.5, // 稍微延迟开始
-        );
-    }
-
-    // 进度标签动画
-    if (props.showProgressLabel && progressLabel.value) {
-        tl.to(
-            progressLabel.value,
-            {
-                left: `${props.level}%`,
-                duration: props.duration,
-                ease: props.ease,
-            },
-            0, // 与进度条同时开始
-        );
-
-        // 标签淡入动画
-        tl.fromTo(
-            progressLabel.value,
-            { opacity: 0, y: -10 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.3,
-                ease: "power2.out",
-            },
-            0.2, // 稍微延迟
-        );
-    }
-
-    // 发光效果动画
-    if (props.showGlow) {
-        const glowElement = progressBar.value.querySelector(".progress-glow");
-        if (glowElement) {
-            tl.to(
-                glowElement,
-                {
-                    opacity: 0.8,
-                    duration: 0.5,
-                    ease: "power2.out",
-                    repeat: -1,
-                    yoyo: true,
-                },
-                0.5,
-            );
-        }
-    }
 
     animationTimeline.value = tl;
 }
@@ -295,60 +229,6 @@ function resetAnimation(): void {
 
     if (progressBar.value) {
         gsap.set(progressBar.value, { width: "0%" });
-    }
-
-    if (progressIndicator.value) {
-        gsap.set(progressIndicator.value, { left: "0%" });
-    }
-
-    if (progressLabel.value) {
-        gsap.set(progressLabel.value, {
-            left: "0%",
-            opacity: 0,
-            y: -10,
-        });
-    }
-}
-
-/**
- * 暂停动画
- */
-function pauseAnimation(): void {
-    if (animationTimeline.value) {
-        animationTimeline.value.pause();
-    }
-}
-
-/**
- * 恢复动画
- */
-function resumeAnimation(): void {
-    if (animationTimeline.value) {
-        animationTimeline.value.resume();
-    }
-}
-
-/**
- * 设置进度（无动画）
- */
-function setProgress(progress: number): void {
-    const clampedProgress = Math.max(0, Math.min(100, progress));
-    currentProgress.value = clampedProgress;
-
-    if (progressBar.value) {
-        gsap.set(progressBar.value, { width: `${clampedProgress}%` });
-    }
-
-    if (progressIndicator.value) {
-        gsap.set(progressIndicator.value, { left: `${clampedProgress}%` });
-    }
-
-    if (progressLabel.value) {
-        gsap.set(progressLabel.value, {
-            left: `${clampedProgress}%`,
-            opacity: 1,
-            y: 0,
-        });
     }
 }
 
@@ -380,9 +260,6 @@ onBeforeUnmount(() => {
 defineExpose({
     start: startAnimation,
     reset: resetAnimation,
-    pause: pauseAnimation,
-    resume: resumeAnimation,
-    setProgress,
     currentProgress: () => currentProgress.value,
     isAnimating: () => isAnimating.value,
 });

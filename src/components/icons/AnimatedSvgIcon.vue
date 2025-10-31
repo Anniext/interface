@@ -20,7 +20,7 @@
             :clickable="clickable"
             :spinning="spinning"
             :aria-label="ariaLabel">
-            <slot />
+            <slot></slot>
         </SvgIcon>
     </div>
 </template>

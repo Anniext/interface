@@ -18,7 +18,7 @@
             @mouseleave="handleMouseLeave"
             @touchstart="handleTouchStart"
             @touchmove="handleTouchMove"
-            @touchend="handleTouchEnd" />
+            @touchend="handleTouchEnd"></canvas>
 
         <!-- 交互指示器 -->
         <div
@@ -33,7 +33,7 @@
                 }px`,
                 width: `${interactionRadius * 2}px`,
                 height: `${interactionRadius * 2}px`,
-            }" />
+            }"></div>
 
         <!-- 调试信息面板 -->
         <div

@@ -9,32 +9,32 @@ import type { ICanvasConfig, IPoint } from "@/types";
  * @returns Canvas 2D 上下文
  */
 export const initCanvas = (
-  canvas: HTMLCanvasElement,
-  config: ICanvasConfig
+    canvas: HTMLCanvasElement,
+    config: ICanvasConfig,
 ): CanvasRenderingContext2D | null => {
-  const ctx = canvas.getContext("2d", { alpha: config.alpha });
+    const ctx = canvas.getContext("2d", { alpha: config.alpha });
 
-  if (!ctx) {
-    console.error("无法获取 Canvas 2D 上下文");
-    return null;
-  }
+    if (!ctx) {
+        console.error("无法获取 Canvas 2D 上下文");
+        return null;
+    }
 
-  // 设置高分辨率适配
-  canvas.width = config.width * config.pixelRatio;
-  canvas.height = config.height * config.pixelRatio;
-  canvas.style.width = `${config.width}px`;
-  canvas.style.height = `${config.height}px`;
+    // 设置高分辨率适配
+    canvas.width = config.width * config.pixelRatio;
+    canvas.height = config.height * config.pixelRatio;
+    canvas.style.width = `${config.width}px`;
+    canvas.style.height = `${config.height}px`;
 
-  // 缩放上下文以适配像素比
-  ctx.scale(config.pixelRatio, config.pixelRatio);
+    // 缩放上下文以适配像素比
+    ctx.scale(config.pixelRatio, config.pixelRatio);
 
-  // 设置背景色
-  if (config.backgroundColor) {
-    ctx.fillStyle = config.backgroundColor;
-    ctx.fillRect(0, 0, config.width, config.height);
-  }
+    // 设置背景色
+    if (config.backgroundColor) {
+        ctx.fillStyle = config.backgroundColor;
+        ctx.fillRect(0, 0, config.width, config.height);
+    }
 
-  return ctx;
+    return ctx;
 };
 
 /**
@@ -44,11 +44,11 @@ export const initCanvas = (
  * @param height 高度
  */
 export const clearCanvas = (
-  ctx: CanvasRenderingContext2D,
-  width: number,
-  height: number
+    ctx: CanvasRenderingContext2D,
+    width: number,
+    height: number,
 ): void => {
-  ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width, height);
 };
 
 /**
@@ -60,22 +60,22 @@ export const clearCanvas = (
  * @param fill 是否填充
  */
 export const drawCircle = (
-  ctx: CanvasRenderingContext2D,
-  center: IPoint,
-  radius: number,
-  color: string,
-  fill: boolean = true
+    ctx: CanvasRenderingContext2D,
+    center: IPoint,
+    radius: number,
+    color: string,
+    fill: boolean = true,
 ): void => {
-  ctx.beginPath();
-  ctx.arc(center.x, center.y, radius, 0, Math.PI * 2);
+    ctx.beginPath();
+    ctx.arc(center.x, center.y, radius, 0, Math.PI * 2);
 
-  if (fill) {
-    ctx.fillStyle = color;
-    ctx.fill();
-  } else {
-    ctx.strokeStyle = color;
-    ctx.stroke();
-  }
+    if (fill) {
+        ctx.fillStyle = color;
+        ctx.fill();
+    } else {
+        ctx.strokeStyle = color;
+        ctx.stroke();
+    }
 };
 
 /**
@@ -88,20 +88,20 @@ export const drawCircle = (
  * @param fill 是否填充
  */
 export const drawRectangle = (
-  ctx: CanvasRenderingContext2D,
-  position: IPoint,
-  width: number,
-  height: number,
-  color: string,
-  fill: boolean = true
+    ctx: CanvasRenderingContext2D,
+    position: IPoint,
+    width: number,
+    height: number,
+    color: string,
+    fill: boolean = true,
 ): void => {
-  if (fill) {
-    ctx.fillStyle = color;
-    ctx.fillRect(position.x, position.y, width, height);
-  } else {
-    ctx.strokeStyle = color;
-    ctx.strokeRect(position.x, position.y, width, height);
-  }
+    if (fill) {
+        ctx.fillStyle = color;
+        ctx.fillRect(position.x, position.y, width, height);
+    } else {
+        ctx.strokeStyle = color;
+        ctx.strokeRect(position.x, position.y, width, height);
+    }
 };
 
 /**
@@ -113,18 +113,18 @@ export const drawRectangle = (
  * @param lineWidth 线宽
  */
 export const drawLine = (
-  ctx: CanvasRenderingContext2D,
-  start: IPoint,
-  end: IPoint,
-  color: string,
-  lineWidth: number = 1
+    ctx: CanvasRenderingContext2D,
+    start: IPoint,
+    end: IPoint,
+    color: string,
+    lineWidth: number = 1,
 ): void => {
-  ctx.beginPath();
-  ctx.moveTo(start.x, start.y);
-  ctx.lineTo(end.x, end.y);
-  ctx.strokeStyle = color;
-  ctx.lineWidth = lineWidth;
-  ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(start.x, start.y);
+    ctx.lineTo(end.x, end.y);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
+    ctx.stroke();
 };
 
 /**
@@ -137,17 +137,17 @@ export const drawLine = (
  * @param align 对齐方式
  */
 export const drawText = (
-  ctx: CanvasRenderingContext2D,
-  text: string,
-  position: IPoint,
-  font: string,
-  color: string,
-  align: CanvasTextAlign = "left"
+    ctx: CanvasRenderingContext2D,
+    text: string,
+    position: IPoint,
+    font: string,
+    color: string,
+    align: CanvasTextAlign = "left",
 ): void => {
-  ctx.font = font;
-  ctx.fillStyle = color;
-  ctx.textAlign = align;
-  ctx.fillText(text, position.x, position.y);
+    ctx.font = font;
+    ctx.fillStyle = color;
+    ctx.textAlign = align;
+    ctx.fillText(text, position.x, position.y);
 };
 
 /**
@@ -159,18 +159,18 @@ export const drawText = (
  * @returns 渐变对象
  */
 export const createLinearGradient = (
-  ctx: CanvasRenderingContext2D,
-  start: IPoint,
-  end: IPoint,
-  colors: { offset: number; color: string }[]
+    ctx: CanvasRenderingContext2D,
+    start: IPoint,
+    end: IPoint,
+    colors: { offset: number; color: string }[],
 ): CanvasGradient => {
-  const gradient = ctx.createLinearGradient(start.x, start.y, end.x, end.y);
+    const gradient = ctx.createLinearGradient(start.x, start.y, end.x, end.y);
 
-  colors.forEach(({ offset, color }) => {
-    gradient.addColorStop(offset, color);
-  });
+    colors.forEach(({ offset, color }) => {
+        gradient.addColorStop(offset, color);
+    });
 
-  return gradient;
+    return gradient;
 };
 
 /**
@@ -183,13 +183,13 @@ export const createLinearGradient = (
  * @returns 像素数据
  */
 export const getImageData = (
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  width: number,
-  height: number
+    ctx: CanvasRenderingContext2D,
+    x: number,
+    y: number,
+    width: number,
+    height: number,
 ): ImageData => {
-  return ctx.getImageData(x, y, width, height);
+    return ctx.getImageData(x, y, width, height);
 };
 
 /**
@@ -200,10 +200,10 @@ export const getImageData = (
  * @param y Y 坐标
  */
 export const putImageData = (
-  ctx: CanvasRenderingContext2D,
-  imageData: ImageData,
-  x: number,
-  y: number
+    ctx: CanvasRenderingContext2D,
+    imageData: ImageData,
+    x: number,
+    y: number,
 ): void => {
-  ctx.putImageData(imageData, x, y);
+    ctx.putImageData(imageData, x, y);
 };

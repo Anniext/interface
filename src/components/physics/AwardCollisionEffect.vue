@@ -14,7 +14,7 @@
             class="absolute inset-0 cursor-pointer"
             @mousedown="handleMouseDown"
             @mousemove="handleMouseMove"
-            @mouseup="handleMouseUp" />
+            @mouseup="handleMouseUp"></canvas>
 
         <!-- 奖项 HTML 层 -->
         <div class="absolute inset-0 pointer-events-none">
@@ -95,7 +95,7 @@
                     opacity: ripple.opacity,
                     borderColor: ripple.color,
                 }"
-                class="absolute rounded-full border-2" />
+                class="absolute rounded-full border-2"></div>
         </div>
 
         <!-- 控制面板 -->

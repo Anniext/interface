@@ -12,13 +12,13 @@
 
 - 使用 Composition API 优先于 Options API
 - 按照以下顺序组织代码：
-  1. imports
-  2. props 定义
-  3. emits 定义
-  4. 响应式数据
-  5. 计算属性
-  6. 方法
-  7. 生命周期钩子
+    1. imports
+    2. props 定义
+    3. emits 定义
+    4. 响应式数据
+    5. 计算属性
+    6. 方法
+    7. 生命周期钩子
 
 ### TypeScript 集成
 

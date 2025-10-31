@@ -7,7 +7,7 @@
         <div
             v-if="showOverlay"
             class="loading-overlay"
-            :style="{ backgroundColor: overlayColor }" />
+            :style="{ backgroundColor: overlayColor }"></div>
 
         <!-- 加载内容容器 -->
         <div class="loading-content">
@@ -72,7 +72,7 @@
                         :style="{
                             width: progress + '%',
                             backgroundColor: progressColor,
-                        }" />
+                        }"></div>
                 </div>
             </div>
 
@@ -86,7 +86,7 @@
                     :style="{
                         backgroundColor: progressColor,
                         animationDelay: index * 0.2 + 's',
-                    }" />
+                    }"></div>
             </div>
 
             <!-- 几何图形加载器 -->
@@ -101,7 +101,7 @@
                         animationDelay: index * 0.1 + 's',
                         width: shape.size + 'px',
                         height: shape.size + 'px',
-                    }" />
+                    }"></div>
             </div>
 
             <!-- 加载文本 -->
@@ -127,7 +127,7 @@
 
             <!-- 自定义插槽内容 -->
             <div v-if="$slots.default" class="custom-content">
-                <slot />
+                <slot></slot>
             </div>
         </div>
     </div>

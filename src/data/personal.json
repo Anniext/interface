@@ -23,11 +23,7 @@
                 "全栈开发",
                 "性能优化"
             ],
-            "industries": [
-                "游戏开发",
-                "智能运维",
-                "数据分析"
-            ],
+            "industries": ["游戏开发", "智能运维", "数据分析"],
             "teamSize": "参与过多个大型项目团队协作"
         },
         "personalTraits": [
@@ -52,15 +48,8 @@
         "availability": {
             "status": "在职，考虑新机会",
             "noticePeriod": "1个月",
-            "workType": [
-                "全职",
-                "远程"
-            ],
-            "preferredLocation": [
-                "广州",
-                "深圳",
-                "远程"
-            ]
+            "workType": ["全职", "远程"],
+            "preferredLocation": ["广州", "深圳", "远程"]
         }
     }
 }

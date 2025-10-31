@@ -68,7 +68,7 @@
             ref="pageContent"
             class="page-content"
             :class="{ transitioning: isTransitioning }">
-            <slot />
+            <slot></slot>
         </div>
     </div>
 </template>
@@ -363,7 +363,9 @@ defineExpose({
 }
 
 .page-content {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 
 .page-content.transitioning {

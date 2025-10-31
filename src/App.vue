@@ -137,81 +137,6 @@ provide("pageTransition", pageTransition);
                                 交互式简历网站
                             </span>
                         </router-link>
-
-                        <!-- 主导航 -->
-                        <div class="nav-links flex items-center gap-2">
-                            <!-- 业务页面导航 -->
-                            <div
-                                class="business-nav flex items-center gap-1 mr-4">
-                                <router-link
-                                    to="/"
-                                    class="nav-link px-3 py-2 rounded-lg hover:bg-primary-500/20 transition-all duration-200"
-                                    active-class="bg-primary-500/30 text-primary-300 shadow-lg">
-                                    🏠 首页
-                                </router-link>
-                                <router-link
-                                    to="/skills"
-                                    class="nav-link px-3 py-2 rounded-lg hover:bg-primary-500/20 transition-all duration-200"
-                                    active-class="bg-primary-500/30 text-primary-300 shadow-lg">
-                                    💡 技能
-                                </router-link>
-                                <router-link
-                                    to="/experience"
-                                    class="nav-link px-3 py-2 rounded-lg hover:bg-primary-500/20 transition-all duration-200"
-                                    active-class="bg-primary-500/30 text-primary-300 shadow-lg">
-                                    💼 经验
-                                </router-link>
-                                <router-link
-                                    to="/projects"
-                                    class="nav-link px-3 py-2 rounded-lg hover:bg-primary-500/20 transition-all duration-200"
-                                    active-class="bg-primary-500/30 text-primary-300 shadow-lg">
-                                    🚀 项目
-                                </router-link>
-                                <router-link
-                                    to="/achievements"
-                                    class="nav-link px-3 py-2 rounded-lg hover:bg-primary-500/20 transition-all duration-200"
-                                    active-class="bg-primary-500/30 text-primary-300 shadow-lg">
-                                    🏆 成就
-                                </router-link>
-                            </div>
-
-                            <!-- 测试页面导航 -->
-                            <div class="test-nav flex items-center gap-1">
-                                <div class="text-xs text-gray-400 mr-2">
-                                    测试:
-                                </div>
-                                <router-link
-                                    to="/test"
-                                    class="nav-link text-sm px-2 py-1 rounded hover:bg-primary-500/20 transition-all duration-200"
-                                    active-class="bg-primary-500/30 text-primary-300">
-                                    路由测试
-                                </router-link>
-                                <router-link
-                                    to="/canvas-test"
-                                    class="nav-link text-sm px-2 py-1 rounded hover:bg-primary-500/20 transition-all duration-200"
-                                    active-class="bg-primary-500/30 text-primary-300">
-                                    Canvas
-                                </router-link>
-                                <router-link
-                                    to="/particle-test"
-                                    class="nav-link text-sm px-2 py-1 rounded hover:bg-primary-500/20 transition-all duration-200"
-                                    active-class="bg-primary-500/30 text-primary-300">
-                                    粒子
-                                </router-link>
-                                <router-link
-                                    to="/physics-test"
-                                    class="nav-link text-sm px-2 py-1 rounded hover:bg-primary-500/20 transition-all duration-200"
-                                    active-class="bg-primary-500/30 text-primary-300">
-                                    物理
-                                </router-link>
-                                <router-link
-                                    to="/animation-demo"
-                                    class="nav-link text-sm px-2 py-1 rounded hover:bg-primary-500/20 transition-all duration-200"
-                                    active-class="bg-primary-500/30 text-primary-300">
-                                    动画
-                                </router-link>
-                            </div>
-                        </div>
                     </div>
                 </nav>
 
@@ -232,7 +157,9 @@ provide("pageTransition", pageTransition);
 }
 
 .main-content {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 
 .main-content.transitioning {

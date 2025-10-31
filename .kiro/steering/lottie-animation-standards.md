@@ -19,20 +19,20 @@
 ```typescript
 // 懒加载动画资源
 const loadAnimation = async (animationName: string) => {
-  const animationData = await import(
-    `@/assets/animations/${animationName}.json`
-  );
-  return animationData.default;
+    const animationData = await import(
+        `@/assets/animations/${animationName}.json`
+    );
+    return animationData.default;
 };
 
 // 控制动画质量和性能
 const animationConfig = {
-  renderer: "svg", // 优先使用 SVG 渲染
-  loop: false,
-  autoplay: false,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
-  },
+    renderer: "svg", // 优先使用 SVG 渲染
+    loop: false,
+    autoplay: false,
+    rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+    },
 };
 ```
 

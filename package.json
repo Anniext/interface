@@ -18,9 +18,9 @@
         "build": "vue-tsc -b && vite build",
         "preview": "vite preview",
         "type-check": "vue-tsc --noEmit",
-        "test": "vitest --run",
-        "test:watch": "vitest",
-        "test:ui": "vitest --ui"
+        "lint": "prettier --check . && eslint . --max-warnings 0",
+        "lint:fix": "prettier --write . && eslint . --fix",
+        "typecheck": "tsc --noEmit"
     },
     "dependencies": {
         "gsap": "^3.13.0",
@@ -36,7 +36,6 @@
         "@eslint/json": "^0.13.2",
         "@eslint/markdown": "^7.5.0",
         "@tailwindcss/vite": "^4.1.16",
-        "globals": "^16.4.0",
         "@types/matter-js": "^0.20.2",
         "@types/node": "^24.6.0",
         "@vitejs/plugin-vue": "^6.0.1",
@@ -45,6 +44,9 @@
         "@vue/tsconfig": "^0.8.1",
         "autoprefixer": "^10.4.21",
         "esbuild": "^0.25.11",
+        "eslint-plugin-jsonc": "^2.21.0",
+        "eslint-plugin-vue": "^10.5.1",
+        "globals": "^16.4.0",
         "jsdom": "^27.0.1",
         "postcss": "^8.5.6",
         "tailwindcss": "^4.1.16",

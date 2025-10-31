@@ -34,25 +34,24 @@
 
 ```vue
 <template>
-  <svg
-    :class="sizeClasses"
-    :style="{ color: color }"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-    <slot />
-  </svg>
+    <svg
+        :class="sizeClasses"
+        :style="{ color: color }"
+        viewBox="0 0 24 24"
+        fill="none">
+        <slot />
+    </svg>
 </template>
 
 <script setup lang="ts">
 interface Props {
-  size?: "sm" | "md" | "lg";
-  color?: string;
+    size?: "sm" | "md" | "lg";
+    color?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  size: "md",
-  color: "currentColor",
+    size: "md",
+    color: "currentColor",
 });
 </script>
 ```

@@ -54,10 +54,10 @@ graph TB
 
 ```typescript
 interface AppState {
-  isLoading: boolean;
-  currentSection: string;
-  theme: "light" | "dark";
-  animationsEnabled: boolean;
+    isLoading: boolean;
+    currentSection: string;
+    theme: "light" | "dark";
+    animationsEnabled: boolean;
 }
 ```
 
@@ -65,17 +65,17 @@ interface AppState {
 
 ```typescript
 interface CanvasEngineProps {
-  width: number;
-  height: number;
-  pixelRatio: number;
-  enablePhysics: boolean;
+    width: number;
+    height: number;
+    pixelRatio: number;
+    enablePhysics: boolean;
 }
 
 interface CanvasEngineState {
-  ctx: CanvasRenderingContext2D | null;
-  animationId: number;
-  particles: Particle[];
-  shapes: Shape[];
+    ctx: CanvasRenderingContext2D | null;
+    animationId: number;
+    particles: Particle[];
+    shapes: Shape[];
 }
 ```
 
@@ -83,18 +83,18 @@ interface CanvasEngineState {
 
 ```typescript
 interface PhysicsSystemProps {
-  gravity: { x: number; y: number };
-  enableCollision: boolean;
-  bodies: PhysicsBody[];
+    gravity: { x: number; y: number };
+    enableCollision: boolean;
+    bodies: PhysicsBody[];
 }
 
 interface PhysicsBody {
-  id: string;
-  type: "rectangle" | "circle" | "polygon";
-  position: { x: number; y: number };
-  velocity: { x: number; y: number };
-  mass: number;
-  restitution: number;
+    id: string;
+    type: "rectangle" | "circle" | "polygon";
+    position: { x: number; y: number };
+    velocity: { x: number; y: number };
+    mass: number;
+    restitution: number;
 }
 ```
 
@@ -102,15 +102,15 @@ interface PhysicsBody {
 
 ```typescript
 interface AnimationControllerProps {
-  timeline: GSAPTimeline;
-  triggers: ScrollTrigger[];
-  autoPlay: boolean;
+    timeline: GSAPTimeline;
+    triggers: ScrollTrigger[];
+    autoPlay: boolean;
 }
 
 interface AnimationState {
-  isPlaying: boolean;
-  progress: number;
-  duration: number;
+    isPlaying: boolean;
+    progress: number;
+    duration: number;
 }
 ```
 
@@ -157,14 +157,14 @@ interface AnimationState {
 
 ```typescript
 interface PersonalInfo {
-  name: string;
-  age: number;
-  location: string;
-  email: string;
-  phone: string;
-  salary: string;
-  avatar?: string;
-  bio?: string;
+    name: string;
+    age: number;
+    location: string;
+    email: string;
+    phone: string;
+    salary: string;
+    avatar?: string;
+    bio?: string;
 }
 ```
 
@@ -172,19 +172,19 @@ interface PersonalInfo {
 
 ```typescript
 interface Skill {
-  id: string;
-  name: string;
-  category: "language" | "framework" | "tool" | "database";
-  level: number; // 1-10
-  icon: string;
-  color: string;
-  experience: number; // 年数
+    id: string;
+    name: string;
+    category: "language" | "framework" | "tool" | "database";
+    level: number; // 1-10
+    icon: string;
+    color: string;
+    experience: number; // 年数
 }
 
 interface SkillCategory {
-  name: string;
-  skills: Skill[];
-  color: string;
+    name: string;
+    skills: Skill[];
+    color: string;
 }
 ```
 
@@ -192,24 +192,24 @@ interface SkillCategory {
 
 ```typescript
 interface WorkExperience {
-  id: string;
-  company: string;
-  position: string;
-  startDate: string;
-  endDate: string | null;
-  description: string;
-  projects: Project[];
-  technologies: string[];
+    id: string;
+    company: string;
+    position: string;
+    startDate: string;
+    endDate: string | null;
+    description: string;
+    projects: Project[];
+    technologies: string[];
 }
 
 interface Project {
-  id: string;
-  name: string;
-  description: string;
-  technologies: string[];
-  highlights: string[];
-  architecture?: string;
-  role: string;
+    id: string;
+    name: string;
+    description: string;
+    technologies: string[];
+    highlights: string[];
+    architecture?: string;
+    role: string;
 }
 ```
 
@@ -217,14 +217,14 @@ interface Project {
 
 ```typescript
 interface Achievement {
-  id: string;
-  title: string;
-  organization: string;
-  date: string;
-  level: "gold" | "silver" | "bronze" | "special";
-  category: string;
-  description?: string;
-  icon: string;
+    id: string;
+    title: string;
+    organization: string;
+    date: string;
+    level: "gold" | "silver" | "bronze" | "special";
+    category: string;
+    description?: string;
+    icon: string;
 }
 ```
 
@@ -241,25 +241,25 @@ interface Achievement {
 
 ```typescript
 interface Particle {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  color: string;
-  life: number;
-  maxLife: number;
-  type: "circle" | "square" | "triangle";
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    size: number;
+    color: string;
+    life: number;
+    maxLife: number;
+    type: "circle" | "square" | "triangle";
 }
 
 class ParticleSystem {
-  particles: Particle[];
-  maxParticles: number;
+    particles: Particle[];
+    maxParticles: number;
 
-  update(deltaTime: number): void;
-  render(ctx: CanvasRenderingContext2D): void;
-  addParticle(config: Partial<Particle>): void;
-  removeDeadParticles(): void;
+    update(deltaTime: number): void;
+    render(ctx: CanvasRenderingContext2D): void;
+    addParticle(config: Partial<Particle>): void;
+    removeDeadParticles(): void;
 }
 ```
 
@@ -274,21 +274,21 @@ class ParticleSystem {
 
 ```typescript
 interface AnimationConfig {
-  duration: number;
-  ease: string;
-  delay: number;
-  stagger?: number;
-  repeat?: number;
-  yoyo?: boolean;
+    duration: number;
+    ease: string;
+    delay: number;
+    stagger?: number;
+    repeat?: number;
+    yoyo?: boolean;
 }
 
 class AnimationManager {
-  timelines: Map<string, GSAPTimeline>;
+    timelines: Map<string, GSAPTimeline>;
 
-  createTimeline(id: string): GSAPTimeline;
-  playAnimation(id: string, config: AnimationConfig): void;
-  pauseAnimation(id: string): void;
-  resetAnimation(id: string): void;
+    createTimeline(id: string): GSAPTimeline;
+    playAnimation(id: string, config: AnimationConfig): void;
+    pauseAnimation(id: string): void;
+    resetAnimation(id: string): void;
 }
 ```
 
@@ -298,28 +298,28 @@ class AnimationManager {
 
 ```css
 :root {
-  /* 主色调 - 游戏风格蓝色 */
-  --primary-50: #eff6ff;
-  --primary-500: #3b82f6;
-  --primary-900: #1e3a8a;
+    /* 主色调 - 游戏风格蓝色 */
+    --primary-50: #eff6ff;
+    --primary-500: #3b82f6;
+    --primary-900: #1e3a8a;
 
-  /* 辅助色 - 能量绿色 */
-  --accent-400: #34d399;
-  --accent-600: #059669;
+    /* 辅助色 - 能量绿色 */
+    --accent-400: #34d399;
+    --accent-600: #059669;
 
-  /* 警告色 - 橙色 */
-  --warning-400: #fbbf24;
-  --warning-600: #d97706;
+    /* 警告色 - 橙色 */
+    --warning-400: #fbbf24;
+    --warning-600: #d97706;
 
-  /* 背景色 */
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
+    /* 背景色 */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
 
-  /* 文字色 */
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
+    /* 文字色 */
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #64748b;
 }
 ```
 
@@ -327,17 +327,17 @@ class AnimationManager {
 
 ```css
 .font-display {
-  font-family: "Orbitron", "Inter", system-ui, sans-serif;
-  font-weight: 700;
+    font-family: "Orbitron", "Inter", system-ui, sans-serif;
+    font-weight: 700;
 }
 
 .font-body {
-  font-family: "Inter", system-ui, sans-serif;
-  font-weight: 400;
+    font-family: "Inter", system-ui, sans-serif;
+    font-weight: 400;
 }
 
 .font-code {
-  font-family: "JetBrains Mono", "Fira Code", monospace;
+    font-family: "JetBrains Mono", "Fira Code", monospace;
 }
 ```
 
@@ -345,12 +345,12 @@ class AnimationManager {
 
 ```typescript
 const EASING = {
-  elastic: "elastic.out(1, 0.3)",
-  bounce: "bounce.out",
-  back: "back.out(1.7)",
-  power: "power2.out",
-  expo: "expo.out",
-  circ: "circ.out",
+    elastic: "elastic.out(1, 0.3)",
+    bounce: "bounce.out",
+    back: "back.out(1.7)",
+    power: "power2.out",
+    expo: "expo.out",
+    circ: "circ.out",
 };
 ```
 
@@ -390,11 +390,11 @@ const EASING = {
 
 ```typescript
 const BREAKPOINTS = {
-  sm: "640px",
-  md: "768px",
-  lg: "1024px",
-  xl: "1280px",
-  "2xl": "1536px",
+    sm: "640px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1280px",
+    "2xl": "1536px",
 };
 ```
 
@@ -434,13 +434,13 @@ const BREAKPOINTS = {
 
 ```typescript
 interface ErrorBoundaryState {
-  hasError: boolean;
-  error: Error | null;
-  errorInfo: string | null;
+    hasError: boolean;
+    error: Error | null;
+    errorInfo: string | null;
 }
 
 class ErrorBoundary extends Vue.Component {
-  // 错误捕获和处理逻辑
+    // 错误捕获和处理逻辑
 }
 ```
 

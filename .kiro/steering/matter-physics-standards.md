@@ -13,20 +13,20 @@
 ```typescript
 // 物理引擎配置
 const engineConfig = {
-  world: {
-    gravity: { x: 0, y: 1, scale: 0.001 },
-  },
-  render: {
-    element: canvasContainer,
-    engine: engine,
-    options: {
-      width: 800,
-      height: 600,
-      pixelRatio: window.devicePixelRatio,
-      background: "transparent",
-      wireframes: false,
+    world: {
+        gravity: { x: 0, y: 1, scale: 0.001 },
     },
-  },
+    render: {
+        element: canvasContainer,
+        engine: engine,
+        options: {
+            width: 800,
+            height: 600,
+            pixelRatio: window.devicePixelRatio,
+            background: "transparent",
+            wireframes: false,
+        },
+    },
 };
 ```
 
@@ -48,11 +48,11 @@ const engineConfig = {
 ```typescript
 // 碰撞事件处理
 Events.on(engine, "collisionStart", (event) => {
-  const pairs = event.pairs;
-  pairs.forEach((pair) => {
-    // 处理碰撞逻辑
-    handleCollision(pair.bodyA, pair.bodyB);
-  });
+    const pairs = event.pairs;
+    pairs.forEach((pair) => {
+        // 处理碰撞逻辑
+        handleCollision(pair.bodyA, pair.bodyB);
+    });
 });
 ```
 

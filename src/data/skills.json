@@ -394,12 +394,7 @@
             "backend-frameworks",
             "databases"
         ],
-        "recentlyLearned": [
-            "rust",
-            "tauri",
-            "llm",
-            "comfyui"
-        ],
+        "recentlyLearned": ["rust", "tauri", "llm", "comfyui"],
         "certifications": [],
         "learningGoals": [
             "深入学习Rust系统编程",

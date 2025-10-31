@@ -31,7 +31,7 @@
         </div>
 
         <!-- 动画内容插槽 -->
-        <slot />
+        <slot></slot>
     </div>
 </template>
 

@@ -15,7 +15,7 @@
         @touchend="handleTouchEnd">
         <!-- 内容插槽 -->
         <div ref="content" class="feedback-content">
-            <slot />
+            <slot></slot>
         </div>
 
         <!-- 涟漪效果 -->

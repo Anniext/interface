@@ -80,8 +80,8 @@
                             isActive
                                 ? 'bg-green-500'
                                 : isExpiring
-                                ? 'bg-yellow-500'
-                                : 'bg-red-500'
+                                  ? 'bg-yellow-500'
+                                  : 'bg-red-500'
                         "></div>
                     <span class="text-xs text-gray-600 dark:text-gray-400">
                         {{ validityText }}

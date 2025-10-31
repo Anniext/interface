@@ -13,24 +13,24 @@
 ```typescript
 // Canvas 配置和初始化
 interface CanvasConfig {
-  width: number;
-  height: number;
-  pixelRatio: number;
-  alpha: boolean;
+    width: number;
+    height: number;
+    pixelRatio: number;
+    alpha: boolean;
 }
 
 const initCanvas = (element: HTMLCanvasElement, config: CanvasConfig) => {
-  const ctx = element.getContext("2d", { alpha: config.alpha });
+    const ctx = element.getContext("2d", { alpha: config.alpha });
 
-  // 高分辨率适配
-  element.width = config.width * config.pixelRatio;
-  element.height = config.height * config.pixelRatio;
-  element.style.width = `${config.width}px`;
-  element.style.height = `${config.height}px`;
+    // 高分辨率适配
+    element.width = config.width * config.pixelRatio;
+    element.height = config.height * config.pixelRatio;
+    element.style.width = `${config.width}px`;
+    element.style.height = `${config.height}px`;
 
-  ctx.scale(config.pixelRatio, config.pixelRatio);
+    ctx.scale(config.pixelRatio, config.pixelRatio);
 
-  return ctx;
+    return ctx;
 };
 ```
 
@@ -43,27 +43,27 @@ const initCanvas = (element: HTMLCanvasElement, config: CanvasConfig) => {
 ```typescript
 // 性能优化示例
 class CanvasRenderer {
-  private offscreenCanvas: HTMLCanvasElement;
-  private offscreenCtx: CanvasRenderingContext2D;
+    private offscreenCanvas: HTMLCanvasElement;
+    private offscreenCtx: CanvasRenderingContext2D;
 
-  constructor() {
-    this.offscreenCanvas = document.createElement("canvas");
-    this.offscreenCtx = this.offscreenCanvas.getContext("2d")!;
-  }
+    constructor() {
+        this.offscreenCanvas = document.createElement("canvas");
+        this.offscreenCtx = this.offscreenCanvas.getContext("2d")!;
+    }
 
-  render() {
-    // 在离屏 Canvas 上绘制
-    this.offscreenCtx.clearRect(
-      0,
-      0,
-      this.offscreenCanvas.width,
-      this.offscreenCanvas.height
-    );
-    // ... 绘制逻辑
+    render() {
+        // 在离屏 Canvas 上绘制
+        this.offscreenCtx.clearRect(
+            0,
+            0,
+            this.offscreenCanvas.width,
+            this.offscreenCanvas.height,
+        );
+        // ... 绘制逻辑
 
-    // 将结果复制到主 Canvas
-    this.mainCtx.drawImage(this.offscreenCanvas, 0, 0);
-  }
+        // 将结果复制到主 Canvas
+        this.mainCtx.drawImage(this.offscreenCanvas, 0, 0);
+    }
 }
 ```
 
@@ -75,14 +75,13 @@ class CanvasRenderer {
 
 ```vue
 <template>
-  <canvas
-    ref="canvasRef"
-    :width="width * pixelRatio"
-    :height="height * pixelRatio"
-    :style="{ width: `${width}px`, height: `${height}px` }"
-    @mousedown="handleMouseDown"
-    @mousemove="handleMouseMove"
-  />
+    <canvas
+        ref="canvasRef"
+        :width="width * pixelRatio"
+        :height="height * pixelRatio"
+        :style="{ width: `${width}px`, height: `${height}px` }"
+        @mousedown="handleMouseDown"
+        @mousemove="handleMouseMove" />
 </template>
 
 <script setup lang="ts">
@@ -90,8 +89,8 @@ const canvasRef = ref<HTMLCanvasElement>();
 const ctx = ref<CanvasRenderingContext2D>();
 
 onMounted(() => {
-  ctx.value = canvasRef.value?.getContext("2d");
-  initCanvas();
+    ctx.value = canvasRef.value?.getContext("2d");
+    initCanvas();
 });
 </script>
 ```
@@ -107,26 +106,26 @@ onMounted(() => {
 ```typescript
 // 图形绘制类抽象
 abstract class Shape {
-  abstract draw(ctx: CanvasRenderingContext2D): void;
-  abstract isPointInside(x: number, y: number): boolean;
+    abstract draw(ctx: CanvasRenderingContext2D): void;
+    abstract isPointInside(x: number, y: number): boolean;
 }
 
 class Circle extends Shape {
-  constructor(
-    public x: number,
-    public y: number,
-    public radius: number,
-    public color: string
-  ) {
-    super();
-  }
+    constructor(
+        public x: number,
+        public y: number,
+        public radius: number,
+        public color: string,
+    ) {
+        super();
+    }
 
-  draw(ctx: CanvasRenderingContext2D) {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-  }
+    draw(ctx: CanvasRenderingContext2D) {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
 }
 ```
 

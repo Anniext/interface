@@ -6,7 +6,7 @@
         @click="handleClick">
         <!-- 卡片头部 -->
         <div ref="cardHeader" class="card-header">
-            <slot name="header" />
+            <slot name="header"></slot>
             <div
                 v-if="showExpandIcon"
                 class="expand-icon"
@@ -26,7 +26,7 @@
         <!-- 可展开内容 -->
         <div ref="cardContent" class="card-content">
             <div ref="contentInner" class="card-content-inner">
-                <slot name="content" />
+                <slot name="content"></slot>
             </div>
         </div>
     </div>

@@ -10,14 +10,14 @@
                 v-if="progressType === 'horizontal'"
                 ref="progressBarRef"
                 class="progress-bar horizontal"
-                :style="progressStyle" />
+                :style="progressStyle"></div>
 
             <!-- 垂直进度条 -->
             <div
                 v-else-if="progressType === 'vertical'"
                 ref="progressBarRef"
                 class="progress-bar vertical"
-                :style="progressStyle" />
+                :style="progressStyle"></div>
 
             <!-- 圆形进度条 -->
             <svg
@@ -47,7 +47,7 @@
         </div>
 
         <!-- 内容插槽 -->
-        <slot />
+        <slot></slot>
     </div>
 </template>
 

@@ -6,8 +6,8 @@
  * @returns 是否有效
  */
 export const isValidEmail = (email: string): boolean => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
 };
 
 /**
@@ -16,8 +16,8 @@ export const isValidEmail = (email: string): boolean => {
  * @returns 是否有效
  */
 export const isValidPhone = (phone: string): boolean => {
-  const phoneRegex = /^1[3-9]\d{9}$/;
-  return phoneRegex.test(phone);
+    const phoneRegex = /^1[3-9]\d{9}$/;
+    return phoneRegex.test(phone);
 };
 
 /**
@@ -26,12 +26,12 @@ export const isValidPhone = (phone: string): boolean => {
  * @returns 是否有效
  */
 export const isValidUrl = (url: string): boolean => {
-  try {
-    new URL(url);
-    return true;
-  } catch {
-    return false;
-  }
+    try {
+        new URL(url);
+        return true;
+    } catch {
+        return false;
+    }
 };
 
 /**
@@ -40,11 +40,11 @@ export const isValidUrl = (url: string): boolean => {
  * @returns 是否为空
  */
 export const isEmpty = (value: any): boolean => {
-  if (value === null || value === undefined) return true;
-  if (typeof value === "string") return value.trim().length === 0;
-  if (Array.isArray(value)) return value.length === 0;
-  if (typeof value === "object") return Object.keys(value).length === 0;
-  return false;
+    if (value === null || value === undefined) return true;
+    if (typeof value === "string") return value.trim().length === 0;
+    if (Array.isArray(value)) return value.length === 0;
+    if (typeof value === "object") return Object.keys(value).length === 0;
+    return false;
 };
 
 /**
@@ -55,7 +55,7 @@ export const isEmpty = (value: any): boolean => {
  * @returns 是否在范围内
  */
 export const isInRange = (value: number, min: number, max: number): boolean => {
-  return value >= min && value <= max;
+    return value >= min && value <= max;
 };
 
 /**
@@ -66,9 +66,9 @@ export const isInRange = (value: number, min: number, max: number): boolean => {
  * @returns 是否符合长度要求
  */
 export const isValidLength = (
-  str: string,
-  minLength: number,
-  maxLength: number
+    str: string,
+    minLength: number,
+    maxLength: number,
 ): boolean => {
-  return str.length >= minLength && str.length <= maxLength;
+    return str.length >= minLength && str.length <= maxLength;
 };

@@ -10,7 +10,7 @@
                 width: `${canvasSize.width}px`,
                 height: `${canvasSize.height}px`,
             }"
-            class="absolute inset-0" />
+            class="absolute inset-0"></canvas>
 
         <!-- 过渡遮罩层 -->
         <div
@@ -20,7 +20,7 @@
                 background: overlayGradient,
                 opacity: overlayOpacity,
                 mixBlendMode: blendMode as any,
-            }" />
+            }"></div>
 
         <!-- 粒子容器 -->
         <div class="absolute inset-0">
@@ -37,7 +37,7 @@
                     height: `${particle.size}px`,
                     backgroundColor: particle.color,
                     borderRadius: particle.shape === 'circle' ? '50%' : '0',
-                }" />
+                }"></div>
         </div>
 
         <!-- 液体效果 SVG -->

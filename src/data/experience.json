@@ -139,11 +139,7 @@
                     "description": "游戏引擎插件开发，提供监控和日志功能",
                     "role": "插件开发工程师",
                     "duration": "2025-05 至今",
-                    "technologies": [
-                        "C++",
-                        "C#",
-                        "Python"
-                    ],
+                    "technologies": ["C++", "C#", "Python"],
                     "highlights": [
                         "使用C++和C#实现Sentry服务告警组件",
                         "Prometheus监测服务组件",
@@ -231,12 +227,7 @@
                     "description": "正版奥特曼授权的卡牌策略游戏GM工具系统",
                     "role": "GM工具开发工程师",
                     "duration": "2024-06 至 2025-02",
-                    "technologies": [
-                        "Golang",
-                        "协程池",
-                        "状态机",
-                        "数据监控"
-                    ],
+                    "technologies": ["Golang", "协程池", "状态机", "数据监控"],
                     "highlights": [
                         "主要参与GM工具开发",
                         "主要负责协程池和机器人调度相关模块功能",
@@ -353,11 +344,7 @@
                     "description": "多个教育机构的中控系统协议对接项目",
                     "role": "协议对接工程师",
                     "duration": "2022-10 至 2023-09",
-                    "technologies": [
-                        "HTTP",
-                        "TCP",
-                        "MQTT"
-                    ],
+                    "technologies": ["HTTP", "TCP", "MQTT"],
                     "highlights": [
                         "武汉纺织大学三盟中控对接",
                         "城市职业技术学院艾迪斯特和快捷中控对接：HTTP、TCP长报文协议和MQTT协议对接",
@@ -440,12 +427,7 @@
             "startDate": "2024-03",
             "endDate": "2024-06",
             "status": "已完成",
-            "technologies": [
-                "Golang",
-                "AST",
-                "XORM",
-                "Sentry"
-            ],
+            "technologies": ["Golang", "AST", "XORM", "Sentry"],
             "highlights": [
                 "采用AST语法树针对Go数据模型生成数据响应接口",
                 "针对模型后缀Local, Share, Global采用不同策略",
@@ -466,11 +448,7 @@
             "startDate": "2024-07",
             "endDate": "2024-09",
             "status": "已完成",
-            "technologies": [
-                "Golang",
-                "AST",
-                "CSV解析"
-            ],
+            "technologies": ["Golang", "AST", "CSV解析"],
             "highlights": [
                 "支持将xlsx文件转为csv文件",
                 "采用AST语法树和CSV解析库生成Go数据模型",
@@ -616,10 +594,7 @@
                 "company": "扬讯科技有限公司",
                 "position": "后端开发工程师",
                 "focus": "游戏后端开发、微服务架构、GM工具",
-                "keyProjects": [
-                    "猎人启程",
-                    "奥特曼OL工具开发"
-                ]
+                "keyProjects": ["猎人启程", "奥特曼OL工具开发"]
             },
             {
                 "period": "2025.03 - 至今",
@@ -723,12 +698,7 @@
             },
             {
                 "category": "全栈开发",
-                "skills": [
-                    "前端开发",
-                    "后端开发",
-                    "数据库设计",
-                    "DevOps"
-                ],
+                "skills": ["前端开发", "后端开发", "数据库设计", "DevOps"],
                 "level": "高级"
             }
         ]

@@ -126,28 +126,34 @@ export function getRecentAchievements(
 export function groupAchievementsByCategory(
     achievements: IAchievement[],
 ): Record<string, IAchievement[]> {
-    return achievements.reduce((groups, achievement) => {
-        const category = achievement.category;
-        if (!groups[category]) {
-            groups[category] = [];
-        }
-        groups[category].push(achievement);
-        return groups;
-    }, {} as Record<string, IAchievement[]>);
+    return achievements.reduce(
+        (groups, achievement) => {
+            const category = achievement.category;
+            if (!groups[category]) {
+                groups[category] = [];
+            }
+            groups[category].push(achievement);
+            return groups;
+        },
+        {} as Record<string, IAchievement[]>,
+    );
 }
 
 /** 按年份分组成就 */
 export function groupAchievementsByYear(
     achievements: IAchievement[],
 ): Record<string, IAchievement[]> {
-    return achievements.reduce((groups, achievement) => {
-        const year = new Date(achievement.date).getFullYear().toString();
-        if (!groups[year]) {
-            groups[year] = [];
-        }
-        groups[year].push(achievement);
-        return groups;
-    }, {} as Record<string, IAchievement[]>);
+    return achievements.reduce(
+        (groups, achievement) => {
+            const year = new Date(achievement.date).getFullYear().toString();
+            if (!groups[year]) {
+                groups[year] = [];
+            }
+            groups[year].push(achievement);
+            return groups;
+        },
+        {} as Record<string, IAchievement[]>,
+    );
 }
 
 /** 获取有效证书 */

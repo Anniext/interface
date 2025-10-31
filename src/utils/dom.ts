@@ -8,15 +8,15 @@ import type { IPoint, ISize } from "@/types";
  * @returns 边界矩形信息
  */
 export const getElementBounds = (element: HTMLElement) => {
-  const rect = element.getBoundingClientRect();
-  return {
-    x: rect.left,
-    y: rect.top,
-    width: rect.width,
-    height: rect.height,
-    centerX: rect.left + rect.width / 2,
-    centerY: rect.top + rect.height / 2,
-  };
+    const rect = element.getBoundingClientRect();
+    return {
+        x: rect.left,
+        y: rect.top,
+        width: rect.width,
+        height: rect.height,
+        centerX: rect.left + rect.width / 2,
+        centerY: rect.top + rect.height / 2,
+    };
 };
 
 /**
@@ -26,14 +26,14 @@ export const getElementBounds = (element: HTMLElement) => {
  * @returns 相对坐标
  */
 export const getRelativeMousePosition = (
-  event: MouseEvent,
-  element: HTMLElement
+    event: MouseEvent,
+    element: HTMLElement,
 ): IPoint => {
-  const rect = element.getBoundingClientRect();
-  return {
-    x: event.clientX - rect.left,
-    y: event.clientY - rect.top,
-  };
+    const rect = element.getBoundingClientRect();
+    return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+    };
 };
 
 /**
@@ -43,14 +43,14 @@ export const getRelativeMousePosition = (
  * @returns 相对坐标
  */
 export const getRelativeTouchPosition = (
-  touch: Touch,
-  element: HTMLElement
+    touch: Touch,
+    element: HTMLElement,
 ): IPoint => {
-  const rect = element.getBoundingClientRect();
-  return {
-    x: touch.clientX - rect.left,
-    y: touch.clientY - rect.top,
-  };
+    const rect = element.getBoundingClientRect();
+    return {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top,
+    };
 };
 
 /**
@@ -58,10 +58,10 @@ export const getRelativeTouchPosition = (
  * @returns 视口尺寸
  */
 export const getViewportSize = (): ISize => {
-  return {
-    width: window.innerWidth,
-    height: window.innerHeight,
-  };
+    return {
+        width: window.innerWidth,
+        height: window.innerHeight,
+    };
 };
 
 /**
@@ -70,13 +70,13 @@ export const getViewportSize = (): ISize => {
  * @returns 是否在视口中
  */
 export const isElementInViewport = (element: HTMLElement): boolean => {
-  const rect = element.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= window.innerHeight &&
-    rect.right <= window.innerWidth
-  );
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= window.innerHeight &&
+        rect.right <= window.innerWidth
+    );
 };
 
 /**
@@ -85,14 +85,14 @@ export const isElementInViewport = (element: HTMLElement): boolean => {
  * @param offset 偏移量
  */
 export const scrollToElement = (
-  element: HTMLElement,
-  offset: number = 0
+    element: HTMLElement,
+    offset: number = 0,
 ): void => {
-  const elementTop = element.offsetTop - offset;
-  window.scrollTo({
-    top: elementTop,
-    behavior: "smooth",
-  });
+    const elementTop = element.offsetTop - offset;
+    window.scrollTo({
+        top: elementTop,
+        behavior: "smooth",
+    });
 };
 
 /**
@@ -102,14 +102,14 @@ export const scrollToElement = (
  * @returns 防抖后的函数
  */
 export const debounce = <T extends (...args: any[]) => any>(
-  func: T,
-  delay: number
+    func: T,
+    delay: number,
 ): ((...args: Parameters<T>) => void) => {
-  let timeoutId: ReturnType<typeof setTimeout>;
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func.apply(null, args), delay);
-  };
+    let timeoutId: ReturnType<typeof setTimeout>;
+    return (...args: Parameters<T>) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(null, args), delay);
+    };
 };
 
 /**
@@ -119,17 +119,17 @@ export const debounce = <T extends (...args: any[]) => any>(
  * @returns 节流后的函数
  */
 export const throttle = <T extends (...args: any[]) => any>(
-  func: T,
-  delay: number
+    func: T,
+    delay: number,
 ): ((...args: Parameters<T>) => void) => {
-  let lastCall = 0;
-  return (...args: Parameters<T>) => {
-    const now = Date.now();
-    if (now - lastCall >= delay) {
-      lastCall = now;
-      func.apply(null, args);
-    }
-  };
+    let lastCall = 0;
+    return (...args: Parameters<T>) => {
+        const now = Date.now();
+        if (now - lastCall >= delay) {
+            lastCall = now;
+            func.apply(null, args);
+        }
+    };
 };
 
 /**
@@ -137,10 +137,10 @@ export const throttle = <T extends (...args: any[]) => any>(
  * @returns 设备类型
  */
 export const getDeviceType = (): "desktop" | "tablet" | "mobile" => {
-  const width = window.innerWidth;
-  if (width >= 1024) return "desktop";
-  if (width >= 768) return "tablet";
-  return "mobile";
+    const width = window.innerWidth;
+    if (width >= 1024) return "desktop";
+    if (width >= 768) return "tablet";
+    return "mobile";
 };
 
 /**
@@ -148,7 +148,7 @@ export const getDeviceType = (): "desktop" | "tablet" | "mobile" => {
  * @returns 是否支持触摸
  */
 export const isTouchDevice = (): boolean => {
-  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
 };
 
 /**
@@ -157,11 +157,11 @@ export const isTouchDevice = (): boolean => {
  * @returns 是否复制成功
  */
 export const copyToClipboard = async (text: string): Promise<boolean> => {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch (error) {
-    console.error("复制到剪贴板失败:", error);
-    return false;
-  }
+    try {
+        await navigator.clipboard.writeText(text);
+        return true;
+    } catch (error) {
+        console.error("复制到剪贴板失败:", error);
+        return false;
+    }
 };

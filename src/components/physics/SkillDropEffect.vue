@@ -10,7 +10,7 @@
                 width: `${canvasSize.width}px`,
                 height: `${canvasSize.height}px`,
             }"
-            class="absolute inset-0" />
+            class="absolute inset-0"></canvas>
 
         <!-- 技能标签 HTML 层 -->
         <div class="absolute inset-0 pointer-events-none">
@@ -42,7 +42,7 @@
                     <div
                         v-if="skill.icon"
                         class="w-4 h-4 shrink-0"
-                        v-html="skill.icon" />
+                        v-html="skill.icon"></div>
                     <span>{{ skill.name }}</span>
                     <!-- 技能等级指示器 -->
                     <div class="flex space-x-1">
@@ -54,7 +54,7 @@
                                 i <= skill.level
                                     ? 'bg-current'
                                     : 'bg-current opacity-30'
-                            " />
+                            "></div>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                     opacity: particle.opacity,
                     backgroundColor: particle.color,
                 }"
-                class="absolute w-2 h-2 rounded-full" />
+                class="absolute w-2 h-2 rounded-full"></div>
         </div>
     </div>
 </template>
@@ -313,10 +313,14 @@ function startDropEffect() {
     });
 
     // 设置完成回调
-    setTimeout(() => {
-        isDropping.value = false;
-        emit("dropComplete");
-    }, config.animation.fallDuration + props.skills.length * config.animation.staggerDelay);
+    setTimeout(
+        () => {
+            isDropping.value = false;
+            emit("dropComplete");
+        },
+        config.animation.fallDuration +
+            props.skills.length * config.animation.staggerDelay,
+    );
 }
 
 /**

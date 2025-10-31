@@ -8,12 +8,12 @@
         @mouseleave="handleMouseLeave">
         <!-- 卡片前面 -->
         <div class="card-face card-front">
-            <slot name="front" />
+            <slot name="front"></slot>
         </div>
 
         <!-- 卡片背面 -->
         <div class="card-face card-back">
-            <slot name="back" />
+            <slot name="back"></slot>
         </div>
     </div>
 </template>

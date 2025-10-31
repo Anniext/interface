@@ -20,17 +20,17 @@
 ```typescript
 // 动画配置集中管理
 const animationConfig = {
-  duration: 0.3,
-  ease: "power2.out",
-  stagger: 0.1,
+    duration: 0.3,
+    ease: "power2.out",
+    stagger: 0.1,
 };
 
 // 使用时间轴管理复杂动画
 const tl = gsap.timeline();
 tl.to(element, { x: 100, duration: 0.5 }).to(
-  element,
-  { y: 50, duration: 0.3 },
-  "-=0.2"
+    element,
+    { y: 50, duration: 0.3 },
+    "-=0.2",
 );
 ```
 

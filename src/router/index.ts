@@ -6,194 +6,111 @@ const routes: RouteRecordRaw[] = [
     {
         path: "/",
         name: "Home",
-        component: () => import("@/views/HomePage.vue"),
+        component: () => import("@/views/HomeView.vue"),
         meta: {
             title: "首页",
             transition: "liquid",
-            level: 0,
         },
     },
-    // 业务页面路由
     {
         path: "/skills",
         name: "Skills",
-        component: () => import("@/views/SkillsPage.vue"),
+        component: () => import("@/views/SkillsView.vue"),
         meta: {
             title: "技能展示",
             transition: "slide",
-            level: 1,
         },
     },
     {
         path: "/experience",
         name: "Experience",
-        component: () => import("@/views/ExperiencePage.vue"),
+        component: () => import("@/views/ExperienceView.vue"),
         meta: {
             title: "工作经验",
             transition: "slide",
-            level: 2,
         },
     },
     {
         path: "/projects",
         name: "Projects",
-        component: () => import("@/views/ProjectsPage.vue"),
+        component: () => import("@/views/ProjectsView.vue"),
         meta: {
-            title: "项目展示",
+            title: "项目作品",
             transition: "slide",
-            level: 3,
         },
     },
     {
         path: "/achievements",
         name: "Achievements",
-        component: () => import("@/views/AchievementsPage.vue"),
+        component: () => import("@/views/AchievementsView.vue"),
         meta: {
-            title: "获奖成就",
+            title: "成就展示",
             transition: "slide",
-            level: 4,
         },
     },
     // 测试页面路由
     {
         path: "/canvas-test",
         name: "CanvasTest",
-        component: () => import("@/views/CanvasTest.vue"),
+        component: () => import("@/views/CanvasTestView.vue"),
         meta: {
             title: "Canvas 测试",
             transition: "geometric",
-            level: 10,
         },
     },
     {
         path: "/particle-test",
         name: "ParticleTest",
-        component: () => import("@/views/ParticleTest.vue"),
+        component: () => import("@/views/ParticleTestView.vue"),
         meta: {
             title: "粒子系统测试",
             transition: "geometric",
-            level: 11,
         },
     },
     {
         path: "/shape-test",
         name: "ShapeTest",
-        component: () => import("@/views/ShapeTest.vue"),
+        component: () => import("@/views/ShapeTestView.vue"),
         meta: {
             title: "几何图形测试",
             transition: "geometric",
-            level: 12,
-        },
-    },
-    {
-        path: "/particle-debug",
-        name: "ParticleDebug",
-        component: () => import("@/views/ParticleDebug.vue"),
-        meta: {
-            title: "粒子系统调试",
-            transition: "geometric",
-            level: 13,
-        },
-    },
-    {
-        path: "/simple-particle",
-        name: "SimpleParticle",
-        component: () => import("@/views/SimpleParticleTest.vue"),
-        meta: {
-            title: "简单粒子测试",
-            transition: "geometric",
-            level: 14,
         },
     },
     {
         path: "/physics-test",
         name: "PhysicsTest",
-        component: () => import("@/views/PhysicsTest.vue"),
+        component: () => import("@/views/PhysicsTestView.vue"),
         meta: {
             title: "物理引擎测试",
             transition: "geometric",
-            level: 15,
         },
     },
     {
         path: "/animation-demo",
         name: "AnimationDemo",
-        component: () => import("@/views/AnimationDemo.vue"),
+        component: () => import("@/views/AnimationDemoView.vue"),
         meta: {
-            title: "动画系统演示",
+            title: "动画演示",
             transition: "geometric",
-            level: 16,
         },
     },
     {
-        path: "/physics-interaction-test",
-        name: "PhysicsInteractionTest",
-        component: () => import("@/views/PhysicsInteractionTest.vue"),
+        path: "/lottie-test",
+        name: "LottieTest",
+        component: () => import("@/views/LottieTestView.vue"),
         meta: {
-            title: "物理交互测试",
+            title: "Lottie 动画测试",
             transition: "geometric",
-            level: 17,
         },
     },
+    // 404 页面
     {
-        path: "/physics-animation-demo",
-        name: "PhysicsAnimationDemo",
-        component: () => import("@/views/PhysicsAnimationDemo.vue"),
+        path: "/:pathMatch(.*)*",
+        name: "NotFound",
+        component: () => import("@/views/NotFoundView.vue"),
         meta: {
-            title: "物理动画效果演示",
-            transition: "geometric",
-            level: 18,
-        },
-    },
-    {
-        path: "/element-animation-demo",
-        name: "ElementAnimationDemo",
-        component: () => import("@/views/ElementAnimationDemo.vue"),
-        meta: {
-            title: "元素动画效果演示",
-            transition: "geometric",
-            level: 19,
-        },
-    },
-    {
-        path: "/scroll-trigger-demo",
-        name: "ScrollTriggerDemo",
-        component: () => import("@/views/ScrollTriggerDemo.vue"),
-        meta: {
-            title: "ScrollTrigger 滚动动画演示",
-            transition: "geometric",
-            level: 20,
-        },
-    },
-    {
-        path: "/animation-performance-demo",
-        name: "AnimationPerformanceDemo",
-        component: () => import("@/views/AnimationPerformanceDemo.vue"),
-        meta: {
-            title: "动画性能监控演示",
-            transition: "geometric",
-            level: 21,
-        },
-    },
-    // 测试路由
-    {
-        path: "/test",
-        name: "Test",
-        component: () => import("@/views/TestPage.vue"),
-        meta: {
-            title: "测试页面",
+            title: "页面未找到",
             transition: "fade",
-            level: 99,
-        },
-    },
-    {
-        path: "/achievement-test",
-        name: "AchievementTest",
-        component: () => import("@/views/AchievementTestPage.vue"),
-        meta: {
-            title: "成就数据测试",
-            transition: "fade",
-            level: 100,
         },
     },
 ];

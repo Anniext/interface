@@ -625,9 +625,12 @@ export function createBatchAnimation<T>(
 ): T[] {
     return elements.map((element, index) => {
         // 添加交错延迟
-        setTimeout(() => {
-            return animationFn(element, index);
-        }, index * staggerDelay * 1000);
+        setTimeout(
+            () => {
+                return animationFn(element, index);
+            },
+            index * staggerDelay * 1000,
+        );
 
         return animationFn(element, index);
     });

@@ -7,23 +7,23 @@
  * @returns 格式化后的日期字符串
  */
 export const formatDate = (
-  date: string | Date,
-  format: string = "YYYY-MM-DD"
+    date: string | Date,
+    format: string = "YYYY-MM-DD",
 ): string => {
-  const d = new Date(date);
+    const d = new Date(date);
 
-  if (isNaN(d.getTime())) {
-    return "无效日期";
-  }
+    if (isNaN(d.getTime())) {
+        return "无效日期";
+    }
 
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
 
-  return format
-    .replace("YYYY", String(year))
-    .replace("MM", month)
-    .replace("DD", day);
+    return format
+        .replace("YYYY", String(year))
+        .replace("MM", month)
+        .replace("DD", day);
 };
 
 /**
@@ -33,12 +33,12 @@ export const formatDate = (
  * @returns 格式化后的时间段
  */
 export const formatWorkPeriod = (
-  startDate: string,
-  endDate: string | null
+    startDate: string,
+    endDate: string | null,
 ): string => {
-  const start = formatDate(startDate, "YYYY.MM");
-  const end = endDate ? formatDate(endDate, "YYYY.MM") : "至今";
-  return `${start} - ${end}`;
+    const start = formatDate(startDate, "YYYY.MM");
+    const end = endDate ? formatDate(endDate, "YYYY.MM") : "至今";
+    return `${start} - ${end}`;
 };
 
 /**
@@ -48,25 +48,25 @@ export const formatWorkPeriod = (
  * @returns 工作年限
  */
 export const calculateWorkDuration = (
-  startDate: string,
-  endDate: string | null
+    startDate: string,
+    endDate: string | null,
 ): string => {
-  const start = new Date(startDate);
-  const end = endDate ? new Date(endDate) : new Date();
+    const start = new Date(startDate);
+    const end = endDate ? new Date(endDate) : new Date();
 
-  const diffTime = Math.abs(end.getTime() - start.getTime());
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  const diffMonths = Math.floor(diffDays / 30);
-  const diffYears = Math.floor(diffMonths / 12);
-  const remainingMonths = diffMonths % 12;
+    const diffTime = Math.abs(end.getTime() - start.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const diffMonths = Math.floor(diffDays / 30);
+    const diffYears = Math.floor(diffMonths / 12);
+    const remainingMonths = diffMonths % 12;
 
-  if (diffYears > 0) {
-    return remainingMonths > 0
-      ? `${diffYears}年${remainingMonths}个月`
-      : `${diffYears}年`;
-  } else {
-    return `${diffMonths}个月`;
-  }
+    if (diffYears > 0) {
+        return remainingMonths > 0
+            ? `${diffYears}年${remainingMonths}个月`
+            : `${diffYears}年`;
+    } else {
+        return `${diffMonths}个月`;
+    }
 };
 
 /**
@@ -75,11 +75,11 @@ export const calculateWorkDuration = (
  * @returns 格式化后的等级描述
  */
 export const formatSkillLevel = (level: number): string => {
-  if (level >= 9) return "专家";
-  if (level >= 7) return "高级";
-  if (level >= 5) return "中级";
-  if (level >= 3) return "初级";
-  return "入门";
+    if (level >= 9) return "专家";
+    if (level >= 7) return "高级";
+    if (level >= 5) return "中级";
+    if (level >= 3) return "初级";
+    return "入门";
 };
 
 /**
@@ -89,8 +89,8 @@ export const formatSkillLevel = (level: number): string => {
  * @returns 百分比字符串
  */
 export const formatPercentage = (value: number, total: number): string => {
-  const percentage = Math.round((value / total) * 100);
-  return `${percentage}%`;
+    const percentage = Math.round((value / total) * 100);
+    return `${percentage}%`;
 };
 
 /**
@@ -99,13 +99,13 @@ export const formatPercentage = (value: number, total: number): string => {
  * @returns 格式化后的文件大小
  */
 export const formatFileSize = (bytes: number): string => {
-  if (bytes === 0) return "0 Bytes";
+    if (bytes === 0) return "0 Bytes";
 
-  const k = 1024;
-  const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
+    const k = 1024;
+    const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
 
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
 };
 
 /**
@@ -115,10 +115,10 @@ export const formatFileSize = (bytes: number): string => {
  * @returns 格式化后的数字字符串
  */
 export const formatNumber = (num: number, decimals: number = 0): string => {
-  return num.toLocaleString("zh-CN", {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  });
+    return num.toLocaleString("zh-CN", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+    });
 };
 
 /**
@@ -129,12 +129,12 @@ export const formatNumber = (num: number, decimals: number = 0): string => {
  * @returns 截断后的文本
  */
 export const truncateText = (
-  text: string,
-  maxLength: number,
-  suffix: string = "..."
+    text: string,
+    maxLength: number,
+    suffix: string = "...",
 ): string => {
-  if (text.length <= maxLength) return text;
-  return text.substring(0, maxLength - suffix.length) + suffix;
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength - suffix.length) + suffix;
 };
 
 /**
@@ -143,7 +143,7 @@ export const truncateText = (
  * @returns 首字母大写的字符串
  */
 export const capitalize = (str: string): string => {
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };
 
 /**
@@ -152,7 +152,7 @@ export const capitalize = (str: string): string => {
  * @returns 短横线字符串
  */
 export const camelToKebab = (str: string): string => {
-  return str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase();
+    return str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase();
 };
 
 /**
@@ -161,5 +161,5 @@ export const camelToKebab = (str: string): string => {
  * @returns 驼峰字符串
  */
 export const kebabToCamel = (str: string): string => {
-  return str.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+    return str.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
 };

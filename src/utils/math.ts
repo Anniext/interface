@@ -8,7 +8,7 @@ import type { IPoint } from "@/types";
  * @returns 弧度
  */
 export const degreesToRadians = (degrees: number): number => {
-  return (degrees * Math.PI) / 180;
+    return (degrees * Math.PI) / 180;
 };
 
 /**
@@ -17,7 +17,7 @@ export const degreesToRadians = (degrees: number): number => {
  * @returns 角度
  */
 export const radiansToDegrees = (radians: number): number => {
-  return (radians * 180) / Math.PI;
+    return (radians * 180) / Math.PI;
 };
 
 /**
@@ -28,7 +28,7 @@ export const radiansToDegrees = (radians: number): number => {
  * @returns 限制后的数值
  */
 export const clamp = (value: number, min: number, max: number): number => {
-  return Math.min(Math.max(value, min), max);
+    return Math.min(Math.max(value, min), max);
 };
 
 /**
@@ -39,7 +39,7 @@ export const clamp = (value: number, min: number, max: number): number => {
  * @returns 插值结果
  */
 export const lerp = (start: number, end: number, t: number): number => {
-  return start + (end - start) * t;
+    return start + (end - start) * t;
 };
 
 /**
@@ -49,9 +49,9 @@ export const lerp = (start: number, end: number, t: number): number => {
  * @returns 距离
  */
 export const distance = (point1: IPoint, point2: IPoint): number => {
-  const dx = point2.x - point1.x;
-  const dy = point2.y - point1.y;
-  return Math.sqrt(dx * dx + dy * dy);
+    const dx = point2.x - point1.x;
+    const dy = point2.y - point1.y;
+    return Math.sqrt(dx * dx + dy * dy);
 };
 
 /**
@@ -61,7 +61,7 @@ export const distance = (point1: IPoint, point2: IPoint): number => {
  * @returns 角度（弧度）
  */
 export const angle = (point1: IPoint, point2: IPoint): number => {
-  return Math.atan2(point2.y - point1.y, point2.x - point1.x);
+    return Math.atan2(point2.y - point1.y, point2.x - point1.x);
 };
 
 /**
@@ -71,7 +71,7 @@ export const angle = (point1: IPoint, point2: IPoint): number => {
  * @returns 随机数
  */
 export const random = (min: number, max: number): number => {
-  return Math.random() * (max - min) + min;
+    return Math.random() * (max - min) + min;
 };
 
 /**
@@ -81,7 +81,7 @@ export const random = (min: number, max: number): number => {
  * @returns 随机整数
  */
 export const randomInt = (min: number, max: number): number => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 /**
@@ -90,12 +90,12 @@ export const randomInt = (min: number, max: number): number => {
  * @returns 标准化后的向量
  */
 export const normalize = (vector: IPoint): IPoint => {
-  const length = Math.sqrt(vector.x * vector.x + vector.y * vector.y);
-  if (length === 0) return { x: 0, y: 0 };
-  return {
-    x: vector.x / length,
-    y: vector.y / length,
-  };
+    const length = Math.sqrt(vector.x * vector.x + vector.y * vector.y);
+    if (length === 0) return { x: 0, y: 0 };
+    return {
+        x: vector.x / length,
+        y: vector.y / length,
+    };
 };
 
 /**
@@ -105,7 +105,7 @@ export const normalize = (vector: IPoint): IPoint => {
  * @returns 点积结果
  */
 export const dotProduct = (vector1: IPoint, vector2: IPoint): number => {
-  return vector1.x * vector2.x + vector1.y * vector2.y;
+    return vector1.x * vector2.x + vector1.y * vector2.y;
 };
 
 /**
@@ -114,7 +114,7 @@ export const dotProduct = (vector1: IPoint, vector2: IPoint): number => {
  * @returns 缓动值
  */
 export const easeOut = (t: number): number => {
-  return 1 - Math.pow(1 - t, 3);
+    return 1 - Math.pow(1 - t, 3);
 };
 
 /**
@@ -123,5 +123,5 @@ export const easeOut = (t: number): number => {
  * @returns 缓动值
  */
 export const easeInOut = (t: number): number => {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 };

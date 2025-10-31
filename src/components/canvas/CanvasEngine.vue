@@ -15,7 +15,7 @@
             @touchstart="handleTouchStart"
             @touchmove="handleTouchMove"
             @touchend="handleTouchEnd"
-            @click="handleClick" />
+            @click="handleClick"></canvas>
 
         <!-- 性能监控面板 -->
         <div

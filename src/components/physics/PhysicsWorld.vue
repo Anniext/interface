@@ -17,7 +17,7 @@
             @mouseup="handleMouseUp"
             @touchstart="handleTouchStart"
             @touchmove="handleTouchMove"
-            @touchend="handleTouchEnd" />
+            @touchend="handleTouchEnd"></canvas>
 
         <!-- 调试信息面板 -->
         <div
